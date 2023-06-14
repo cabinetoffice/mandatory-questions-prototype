@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Funding amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['funding-amount'] %}
+        <form class="form" action="/confirm-org-details" method="post">
+      {% else %} 
+        <form class="form" action="/funding-location" method="post">
+      {% endif %}
+
+      {{ govukInput({
+        id: "funding-amount",
+        name: "funding-amount",
+        value: data["funding-amount"],
+        label: {
+          text: "How much funding do you expect you will be applying for?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "You can change this estimate later. Enter the amount in British pounds (£)."
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+      
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

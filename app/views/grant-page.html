@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Test Grant for Prototyping – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+        <h1 class="govuk-heading-l">Test Grant for Prototyping</h1>
+
+        <p class="govuk-body">
+            The Test Grant for Prototyping (TGP) offers no funding. It exists for the purpose of testing the Find a Grant service, and does not exist on the real Find a Grant website. The scheme was re-launched in June 2023 to enable more people to trial the prototype and help learn more about how people approach and feel about the experience of applying for a grant.
+        </p>
+        <ul class="govuk-list">
+            <li><strong>Opening date:</strong> 30 April 2023, 11:00am</li>
+            <li><strong>Closing date:</strong> 1 July 2023, 11:59pm</li>
+        </ul>
+
+        <form action="/start-form" method="post">
+          {{ govukButton({
+            text: "Start new application"
+          }) }}
+        </form>
+
+      </div>
+
+      <div class="govuk-grid-column-one-quarter">
+        <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-2 govuk-border-colour">
+        <h2 class="govuk-heading-m">
+          Get updates about this grant
+        </h2>
+        <a class="govuk-body" href="#">Sign up for updates</a>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+        {{ govukTabs({
+          items: [
+            {
+              label: "Summary",
+              id: "summary",
+              panel: {
+                html: "<h2 class='govuk-heading-m'>Summary</h2> <p class='govuk-body'>Summary text goes here. This should describe the grant's aims, objective, and purpose.</p>"
+              }
+            },
+            {
+              label: "Eligibility",
+              id: "eligibility", 
+              panel: {
+                html: "<h2 class='govuk-heading-m'>Eligibility</h2> <p class='govuk-body'>This is a test grant, and as such anybody involved in testing is eligible to apply. </p>"
+              }
+            },
+            {
+              label: "Objectives",
+              id: "objectives",
+              panel: {
+                html: "<h2 class='govuk-heading-m'>Objectives</h2> <p class='govuk-body'>Grant objectives should go here. </p>"
+              }
+            },
+            {
+              label: "Dates",
+              id: "dates",
+              panel: {
+                html: "<h2 class='govuk-heading-m'>Dates</h2> <p class='govuk-body'>Information on the key dates involved in the application process should go here. </p>"
+              }
+            },
+            {
+              label: "How to apply",
+              id: "how-to-apply",
+              panel: {
+                html: "<h2 class='govuk-heading-m'>How to apply</h2> <p class='govuk-body'>Information on how to apply should go here. This should cover if there are any special requirements and whether the form is on Find a Grant or a separate service. </p>"
+              }
+            },
+            {
+              label: "Supporting information",
+              id: "supporting-information",
+              panel: {
+                html: "<h2 class='govuk-heading-m'>Supporting information</h2> <p class='govuk-body'>Any supporting information about the grant should be provided here. </p>"
+              }
+            }
+          ]
+        }) }}
+    </div>
+        
+    </div>
+  </div>
+
+{% endblock %}

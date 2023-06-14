@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Organisation name – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['organisation-name'] %}
+        <form class="form" action="/confirm-org-details" method="post">
+      {% else %} 
+        <form class="form" action="/organisation-address" method="post">
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: "What is the name of your organisation?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Enter the official name of your organisation. This could be the name that is registered with Companies House or the Charity Commision."
+        },
+        id: "name",
+        name: "organisation-name",
+        value: data['organisation-name']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

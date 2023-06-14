@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
+    </h1>
+
+    <p>
+      If you are testing the logged out journey, pretend you already have a GOV.UK One Login. <strong>Please use a fake email and password!</strong> 
+    </p>
+    <p>
+      Select the situation you've been asked to test from the following options:
+    </p>
+
+    <ul class="govuk-list">
+      <li><a href="/grant-page">Start the prototype as though you were logged out</a></li>
+      <li><a href="/grant-page?login-email=email&login-pass=pass">Start the prototype as though you were logged in</a></li>
+    </ul>
+
+  </div>
+</div>
+
+{% endblock %}
