@@ -1,4 +1,9 @@
 {
+  "name": "mandatory-questions-prototype",
+  "version": "1.0.0",
+  "description": "Prototype for Find a Grant mandatory questions",
+  "author": "Matt Steel",
+  "license": "MIT",
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
