@@ -17,9 +17,9 @@
     <div class="govuk-grid-column-two-thirds">
       
       {% if data['organisation-address'] %}
-        <form class="form" action="/confirm-org-details" method="post">
+        <form class="form" action="/confirm-org-details" method="post" autocomplete="off">
       {% else %} 
-        <form class="form" action="/organisation-type" method="post">
+        <form class="form" action="/organisation-type" method="post" autocomplete="off">
       {% endif %}
 
       {% call govukFieldset({
@@ -36,8 +36,7 @@
           },
           id: "address-line-1",
           name: "organisation-address[line-1]",
-          value: data['organisation-address']['line-1'],
-          autocomplete: "address-line1"
+          value: data['organisation-address']['line-1']
         }) }}
       
         {{ govukInput({
@@ -46,8 +45,7 @@
           },
           id: "address-line-2",
           name: "organisation-address[line-2]",
-          value: data['organisation-address']['line-2'],
-          autocomplete: "address-line2"
+          value: data['organisation-address']['line-2']
         }) }}
       
         {{ govukInput({
@@ -57,8 +55,7 @@
           classes: "govuk-!-width-two-thirds",
           id: "address-town",
           name: "organisation-address[town]",
-          value: data['organisation-address']['town'],
-          autocomplete: "address-level2"
+          value: data['organisation-address']['town']
         }) }}
       
         {{ govukInput({
@@ -78,8 +75,7 @@
           classes: "govuk-input--width-10",
           id: "address-postcode",
           name: "organisation-address[postcode]",
-          value: data['organisation-address']['postcode'],
-          autocomplete: "postal-code"
+          value: data['organisation-address']['postcode']
         }) }}
       
       {% endcall %}

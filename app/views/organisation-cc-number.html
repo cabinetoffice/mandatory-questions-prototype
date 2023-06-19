@@ -17,9 +17,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       {% if data['organisation-cc-number'] %}
-        <form class="form" action="/confirm-org-details" method="post">
+        <form class="form" action="/confirm-org-details" method="post" autocomplete="off">
       {% else %} 
-        <form class="form" action="/funding-amount" method="post">
+        <form class="form" action="/funding-amount" method="post" autocomplete="off">
       {% endif %}
 
       {{ govukInput({
