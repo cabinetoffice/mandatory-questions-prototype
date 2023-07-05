@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Password – GOV.UK One Login – GOV.UK Prototype Kit
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,11 +16,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="../account-match" method="post">
+      <form class="form" action="/start-form" method="post" autocomplete="off">
 
         {{ govukInput({
-          id: "onelogin-pass",
-          name: "onelogin-pass",
+          id: "login-pass",
+          name: "login-pass",
           label: {
             text: "Enter your password",
             classes: "govuk-label--l",
@@ -33,7 +33,9 @@
           spellcheck: false
         }) }}
 
-        <p><a href="#">I've forgotten my password</a></p>
+        <p>
+          <a href="#">I've forgotten my password</a>
+        </p>
 
         {{ govukButton({
           text: "Continue"

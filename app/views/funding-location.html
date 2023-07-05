@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  Funding locations – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -16,7 +16,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="/mand-qs-june23/confirm-org-details" method="post" autocomplete="off">
+        <form class="form" action="/confirm-org-details" method="post" autocomplete="off">
 
       {{ govukCheckboxes({
         name: "funding-location",

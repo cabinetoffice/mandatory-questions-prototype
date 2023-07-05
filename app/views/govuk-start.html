@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Sign in – GOV.UK One Login – GOV.UK Prototype Kit
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -15,19 +15,13 @@
         <li>a way to get security codes - this can be a mobile phone number or authenticator app</li>
       </ul>
 
-      <p class="govuk-inset-text"> You can also <a href="#"> use GOV.UK One Login in Welsh (Cymraeg)</a>.</p>
+      <p class="govuk-inset-text">GOV.UK One Login is also available <a href="#">in Welsh (Cymraeg)</a>.</p>
 
-      <div class="govuk-button-group">
       {{ govukButton({
         text: "Create a GOV.UK One Login"
       }) }}
 
-      {{ govukButton({
-        text: "Sign in",
-        classes: "govuk-button--secondary",
-        href: "/one-login-july23/onelogin-email"
-      }) }}
-    </div>
+      <p>If you already have a GOV.UK One Login, you can <a href="/login-email">sign in</a>.</p>
 
       {{ govukDetails({
         summaryText: "About GOV.UK One Login",
@@ -37,8 +31,8 @@
         </p>
 
         <ul class='govuk-list govuk-list--bullet'>
+          <li>Apply for a grant</li>
           <li>Apply for a vehicle operator licence</li>
-          <li>Find a grant</li>
           <li>GOV.UK email subscriptions</li>
           <li>LITE (Licensing for International Trade and Enterprise)</li>
           <li>Request a basic DBS check</li>

@@ -7,8 +7,6 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
-
-//Mandatory questions (June 2023) routes
 router.post('/start-form', function (req, res){
     var name = req.session.data['organisation-name']
     var address = req.session.data['organisation-address']
@@ -16,43 +14,10 @@ router.post('/start-form', function (req, res){
     var loggedin = req.session.data['login-email']
 
     if (name != null && address != null && type != null){
-        res.redirect('mand-qs-june23/funding-amount')
+        res.redirect('/funding-amount')
     } else if (loggedin) {
-        res.redirect('mand-qs-june23/organisation-name')
+        res.redirect('organisation-name')
     } else {
-        res.redirect('mand-qs-june23/govuk-start')
-    }
-})
-
-//One Login (July 2023) routes
-router.post('/account-match', function(request, response) {
-    var matchAcct = request.session.data['account-match']
-
-    if (matchAcct == "app"){
-        response.redirect("/one-login-july23/matching-account")
-    } else if (matchAcct == "admin") {
-        response.redirect("/one-login-july23/admin-match")
-    } else {
-        response.redirect("/one-login-july23/profile")
-    }
-})
-
-router.get('/continue-from-linked', function(request, response) {
-    var matchAcct = request.session.data['account-match']
-
-    if (matchAcct == "admin"){
-        response.redirect("/one-login-july23/admin-profile")
-    } else {
-        response.redirect("/one-login-july23/profile-no-banner")
-    }
-})
-
-router.post('/transfer-account', function(request, response) {
-    var transferAcct = request.session.data['transfer-account']
-
-    if (transferAcct == "link-yes"){
-        response.redirect("/one-login-july23/accounts-linked")
-    } else {
-        response.redirect("/one-login-july23/profile")
+        res.redirect('govuk-start')
     }
 })
