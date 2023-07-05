@@ -8,20 +8,30 @@
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      {{ serviceName }} prototypes
     </h1>
 
     <p>
-      If you are testing the logged out journey, pretend you already have a GOV.UK One Login. <strong>Please use a fake email and password!</strong> 
+      When relevant, you should act as if you already have a GOV.UK One Login (even if you don't). <strong>Please use a fake email and password!</strong> 
     </p>
     <p>
       Select the situation you've been asked to test from the following options:
     </p>
 
+    <h2 class="govuk-heading-m">Mandatory questions</h2>
     <ul class="govuk-list">
-      <li><a href="/grant-page">Start the prototype as though you were logged out</a></li>
-      <li><a href="/grant-page?login-email=email&login-pass=pass">Start the prototype as though you were logged in</a></li>
+      <li><a href="/mand-qs-june23/grant-page">Start the prototype as though you were logged out</a></li>
+      <li><a href="/mand-qs-june23/grant-page?login-email=email&login-pass=pass">Start the prototype as though you were logged in</a></li>
     </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">One Login</h2>
+    <ul class="govuk-list">
+      <li><a href="/one-login-july23/home-page?account-match=app">An applicant account using the same email exists</a></li>
+      <li><a href="/one-login-july23/home-page?account-match=admin">An admin account using the same email exists</a>
+      <li><a href="/one-login-july23/home-page">An account using the same email does not exist</a></li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
   </div>
 </div>
