@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  We've sent you an email – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Check your email",
+        html: "We’ve sent an email to <strong>full.name@email.com</strong>"
+      }) }}
+
+      <p>
+        We have sent an email with a link to transfer your account information.
+      </p>
+
+      <p>
+        This email may take a few minutes to arrive. It might go to your spam or junk folders. If you’ve entered the wrong email address, you can go back and enter it again.</p>
+
+      <p>
+        If you don’t receive an email, please get in contact with us at <a href='#'>findagrant@cabinetoffice.gov.uk</a>.
+      </p>
+
+      <p>
+        For this prototype, we haven't sent an actual email. <a href='/one-login-july23/accounts-linked'>Continue to the next page</a>.
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
