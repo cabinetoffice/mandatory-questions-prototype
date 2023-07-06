@@ -26,20 +26,20 @@ router.post('/start-form', function (req, res){
 
 //One Login (July 2023) routes
 router.post('/account-match', function(request, response) {
-    var matchAcct = request.session.data['account-match']
 
+    var matchAcct = request.session.data['account-match']
     if (matchAcct == "app"){
         response.redirect("/one-login-july23/matching-account")
     } else if (matchAcct == "admin") {
-        response.redirect("/one-login-july23/admin-match")
+        response.redirect("/one-login-july23/admin-profile")
     } else {
         response.redirect("/one-login-july23/profile")
     }
 })
 
 router.get('/continue-from-linked', function(request, response) {
-    var matchAcct = request.session.data['account-match']
 
+    var matchAcct = request.session.data['account-match']
     if (matchAcct == "admin"){
         response.redirect("/one-login-july23/admin-profile")
     } else {
@@ -48,8 +48,8 @@ router.get('/continue-from-linked', function(request, response) {
 })
 
 router.post('/transfer-account', function(request, response) {
-    var transferAcct = request.session.data['transfer-account']
 
+    var transferAcct = request.session.data['transfer-account']
     if (transferAcct == "link-yes"){
         response.redirect("/one-login-july23/accounts-linked")
     } else {
