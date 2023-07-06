@@ -20,32 +20,12 @@ Account match found – {{ serviceName }} – GOV.UK Prototype Kit
         We found a matching account
       </h1>
 
-      <form class="form" action="/one-login-july23/accounts-linked" method="post">
+      <form class="form" action="/accounts-linked" method="post">
 
         <p>
           We found an account for Find a grant that uses the email address XXXX@XXXXX.XX. Any grants, grant application forms, and grant adverts from this account will be transferred to your GOV.UK One Login.<br>
           You will need to transfer this information to continue.
         </p>
-
-        {{ govukCheckboxes({
-          name: "privacy-policy-agreement",
-          fieldset: {
-            legend: {
-              text: "Do you agree to the Find a grant privacy policy?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            html: "<p class='govuk-hint'>You need to confirm you have read and agree to the <a href='#'>Find a grant privacy policy</a> before we can transfer your data.</p>"
-          },
-          items: [
-            {
-              value: "agreed",
-              text: "I have read and agree to the Find a grant privacy policy"
-            }
-          ]
-        }) }}
 
         {{ govukButton({
           text: "Continue"

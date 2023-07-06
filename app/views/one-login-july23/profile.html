@@ -6,12 +6,13 @@
 
 {% block content %}
 
-{{ govukNotificationBanner({
-  html: '<p class="govuk-notification-banner__heading">If you made a Find a grant account before DD MM 2023, you can <a href="/one-login-july23/merge-by-email">transfer your information from an old account</a>.</p>'
-}) }}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    {{ govukNotificationBanner({
+      html: '<p class="govuk-notification-banner__heading"><a href="/one-login-july23/merge-by-email">You can still transfer all of your information to this account</a>.</p>'
+    }) }}
+
     <h1 class="govuk-heading-l">Account details</h1>
 
     {{ govukSummaryList({
