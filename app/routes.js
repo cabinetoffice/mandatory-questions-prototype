@@ -51,7 +51,7 @@ router.post('/transfer-account', function(request, response) {
 
     var transferAcct = request.session.data['transfer-account']
     if (transferAcct == "link-yes"){
-        response.redirect("/one-login-july23/accounts-linked")
+        response.redirect("/one-login-july23/profile-no-banner")
     } else {
         response.redirect("/one-login-july23/profile")
     }
