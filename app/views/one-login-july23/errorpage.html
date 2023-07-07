@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Notice for returning users – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-l">Sorry, something went wrong transferring your data</h1>
+
+      <p class="govuk-body">
+        We could not transfer your information to your GOV.UK One Login.
+      </p>  
+      <p class="govuk-body">
+        Please get in contact with our support team at <a href="#">findagrant@cabinetoffice.gov.uk</a>.
+      </p>
+
+      {{ govukButton ({
+        text: "Continue",
+        href: "/one-login-july23/profile-error"
+      }) }}
+      
+    </div>
+  </div>
+
+{% endblock %}

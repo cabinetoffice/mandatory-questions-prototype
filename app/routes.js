@@ -42,8 +42,10 @@ router.get('/continue-from-linked', function(request, response) {
     var matchAcct = request.session.data['account-match']
     if (matchAcct == "admin"){
         response.redirect("/one-login-july23/admin-profile")
+    } else if (matchAcct == "error"){
+        response.redirect("/one-login-july23/errorpage")
     } else {
-        response.redirect("/one-login-july23/profile-no-banner")
+        response.redirect("/one-login-july23/accounts-linked")
     }
 })
 
