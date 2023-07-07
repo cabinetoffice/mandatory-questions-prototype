@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Mandatory checks complete",
+        html: "Thank you for helping to test this prototype."
+      }) }}
+
+      <p>
+        Thank you for completing this prototype journey. <br> We would love to hear your thoughts.
+      </p>
+
+      <h2 class="govuk-heading-m">
+        What happens next
+      </h2>
+
+      <p>
+        You would ordinarily be sent to the application form at this point.
+      </p>
+
+      <p>
+        The details you have provided would now be passed to a service to carry out fraud prevention checks.
+      </p>
+
+      <p>
+        <a class="govuk-link" href="/mand-qs-july23/grant-page">Return to the start</a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

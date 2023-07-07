@@ -56,3 +56,19 @@ router.post('/transfer-account', function(request, response) {
         response.redirect("/one-login-july23/profile")
     }
 })
+
+//Mandatory questions (July 2023) routes
+router.post('/start-form-2', function (req, res){
+    var name = req.session.data['organisation-name']
+    var address = req.session.data['organisation-address']
+    var type = req.session.data['organisation-type']
+    var loggedin = req.session.data['login-email']
+
+    if (name != null && address != null && type != null){
+        res.redirect('mand-qs-july23/funding-amount')
+    } else if (loggedin) {
+        res.redirect('mand-qs-july23/organisation-name')
+    } else {
+        res.redirect('mand-qs-july23/govuk-start')
+    }
+})

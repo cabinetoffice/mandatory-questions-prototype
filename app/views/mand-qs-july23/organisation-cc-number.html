@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Charity Commission number – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['organisation-cc-number'] %}
+        <form class="form" action="/mand-qs-july23/confirm-org-details" method="post" autocomplete="off">
+      {% else %} 
+        <form class="form" action="/mand-qs-july23/funding-amount" method="post" autocomplete="off">
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: "What is your organisation's Charity Commission number (if it has one)?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "If your organisation is registered with the Charity Commission, enter its charity number."
+        },
+        id: "cc-number",
+        name: "organisation-cc-number",
+        value: data['organisation-cc-number']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
