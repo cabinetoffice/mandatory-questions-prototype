@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sign in – GOV.UK One Login – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Create a GOV.UK One Login or sign in</h1>
+
+      <p class="govuk-body">You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an email address</li>
+        <li>a way to get security codes - this can be a mobile phone number or authenticator app</li>
+      </ul>
+
+      <p class="govuk-inset-text"> You can also <a href="#"> use GOV.UK One Login in Welsh (Cymraeg)</a>.</p>
+
+      <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Create a GOV.UK One Login"
+      }) }}
+
+      {{ govukButton({
+        text: "Sign in",
+        classes: "govuk-button--secondary",
+        href: "/mand-qs-july23/login-email"
+      }) }}
+    </div>
+
+      {{ govukDetails({
+        summaryText: "About GOV.UK One Login",
+        html: "
+        <p>
+          GOV.UK One Login is new. At the moment you can only use your GOV.UK One Login with:
+        </p>
+
+        <ul class='govuk-list govuk-list--bullet'>
+          <li>Apply for a vehicle operator licence</li>
+          <li>Find a grant</li>
+          <li>GOV.UK email subscriptions</li>
+          <li>LITE (Licensing for International Trade and Enterprise)</li>
+          <li>Request a basic DBS check</li>
+        </ul>
+
+        <p>
+          GOV.UK One Login is currently separate from other government accounts (for example Government Gateway or Universal Credit).
+        </p>
+        
+        <p>
+          In the future, you'll be able to use your GOV.UK One Login to sign in to most services on GOV.UK.
+        </p>"
+      }) }}      
+
+    </div>
+</div>
+
+{% endblock %}

@@ -74,3 +74,19 @@ router.post('/start-form-2', function (req, res){
         res.redirect('mand-qs-july23/govuk-start')
     }
 })
+
+//Mandatory questions (July 2023) routes II
+router.post('/start-form-3', function (req, res){
+    var name = req.session.data['organisation-name']
+    var address = req.session.data['organisation-address']
+    var type = req.session.data['organisation-type']
+    var loggedin = req.session.data['login-email']
+
+    if (name != null && address != null && type != null){
+        res.redirect('mand-qs-july23-2/funding-amount')
+    } else if (loggedin) {
+        res.redirect('mand-qs-july23-2/organisation-name')
+    } else {
+        res.redirect('mand-qs-july23-2/govuk-start')
+    }
+})

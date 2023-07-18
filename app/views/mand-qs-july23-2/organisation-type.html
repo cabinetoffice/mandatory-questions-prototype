@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Organisation type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['organisation-type'] %}
+        <form class="form" action="/mand-qs-july23/confirm-org-details" method="post" autocomplete="off">
+      {% else %} 
+        <form class="form" action="/mand-qs-july23/organisation-ch-number" method="post" autocomplete="off">
+      {% endif %}
+
+      {{ govukRadios({
+        name: "organisation-type",
+        value: data['organisation-type'],
+        fieldset: {
+          legend: {
+            text: "What is your organisation type?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Limited company",
+            text: "Limited company"
+          },
+          {
+            value: "Non-limited company",
+            text: "Non-limited company"
+          },
+          {
+            value: "Registered charity",
+            text: "Registered charity"
+          },
+          {
+            value: "Unregistered charity",
+            text: "Unregistered charity"
+          },
+          {
+            value: "other",
+            text: "Other"
+          }
+        ]
+      }) }}
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Why do we need this information?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          It helps us to identify your organisation. We use this information for due diligence checks and to prevent fraud.
+        </div>
+      </details>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

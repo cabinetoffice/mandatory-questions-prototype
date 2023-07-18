@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Funding location – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/mand-qs-july23/confirm-org-details" method="post" autocomplete="off">
+
+      {{ govukCheckboxes({
+        name: "funding-location",
+        values: data['funding-location'],
+        fieldset: {
+          legend: {
+            text: "Where will the funding be spent?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: "
+          <p>Select the locations where grant funding will be spent. This may be different to the location of your registered address.</p>
+          <p> You can select more than one if funding will be spent in more than one location.</p>
+          <p>Select all that apply.</p>"
+        },
+        items: [
+          {
+            value: "North East England",
+            text: "North East England"
+          },
+          {
+            value: "North West England",
+            text: "North West England"
+          },
+          {
+            value: "South East England",
+            text: "South East England"
+          },
+          {
+            value: "South West England",
+            text: "South West England"
+          },
+          {
+            value: "Midlands",
+            text: "Midlands"
+          },
+          {
+            value: "Scotland",
+            text: "Scotland"
+          },
+          {
+            value: "Wales",
+            text: "Wales"
+          },
+          {
+            value: "Northern Ireland",
+            text: "Northern Ireland"
+          },
+          {
+            value: "Outside of the UK",
+            text: "Outside of the UK"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

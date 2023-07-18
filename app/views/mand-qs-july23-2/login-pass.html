@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Enter your password – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="../start-form-3" method="post" autocomplete="off">
+
+        {{ govukInput({
+          id: "login-pass",
+          name: "login-pass",
+          label: {
+            text: "Enter your password",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          suffix: {
+            html: "<p><a href='#'>Hide</a></p>"
+          },
+          classes: "govuk-input--width-20",
+          spellcheck: false
+        }) }}
+
+        <p>
+          <a href="#">I've forgotten my password</a>
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
