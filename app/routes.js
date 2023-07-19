@@ -82,40 +82,74 @@ router.post('/start-form-2', function (req, res){
 })
 
 //Mandatory questions (July 2023) routes II
-router.post('/start-form-3', function (req, res){
+router.post('/sign-in', function(req, res){
+    var migratedUser = req.session.data['migrated-user']
+
+    if (migratedUser) {
+        res.redirect("/mand-qs-july23-2/individual")
+    } else {
+        res.redirect("/mand-qs-july23-2/privacy-policy")
+    }
+})
+
+router.post('/privacy-policy-next', function(req, res){
+    var returner = req.session.data['returning-user']
+
+    if (returner) {
+        res.redirect("/mand-qs-july23-2/matching-account")
+    } else {
+        res.redirect("/mand-qs-july23-2/individual")
+    }
+})
+
+router.post('/transfer-account-2', function(req, res){
+    var transferAccount = req.session.data['transfer-account']
+
+    if (transferAccount == "link-yes") {
+        res.redirect("mand-qs-july23-2/accounts-linked")
+    } else {
+        res.redirect("mand-qs-july23-2/individual")
+    }
+})
+
+router.post('/individual-next', function(req, res){
+    var isIndividual = req.session.data['individual']
+
+    if (isIndividual == "yes") {
+        res.redirect("mand-qs-july23-2/leaving-gov")
+    } else {
+        res.redirect("mand-qs-july23-2/before-you-start")
+    }
+})
+
+router.post('/start-questions', function(req, res){
     var name = req.session.data['organisation-name']
     var address = req.session.data['organisation-address']
     var type = req.session.data['organisation-type']
-    var loggedin = req.session.data['login-email']
 
-    if (loggedin) {
-        if (name != null && address != null && type != null){
-            res.redirect('mand-qs-july23-2/funding-amount')
-        } else {
-            res.redirect('mand-qs-july23-2/organisation-name')
-        }
+    if (name != null && address != null && type != null) {
+        res.redirect("mand-qs-july23-2/funding-amount")
     } else {
-        res.redirect('mand-qs-july23-2/govuk-start')
+        res.redirect("mand-qs-july23-2/organisation-name")
     }
 })
 
-router.post('/next-from-type', function(req, res){
-    var orgType = req.session.data['organisation-type']
+router.post('/type-next', function(req, res){
+    var type = req.session.data['organisation-type']
 
-    if (orgType == "Non-limited company") {
-        res.redirect('mand-qs-july23-2/funding-amount')
+    if (type == "Non-limited company") {
+        res.redirect("mand-qs-july23-2/funding-amount")
     } else {
-        res.redirect('mand-qs-july23-2/organisation-ch-number')
+        res.redirect("mand-qs-july23-2/organisation-ch-number")
     }
-
 })
 
-router.post('/next-from-privpol', function(req, res){
-    var newAccount = req.session.data['new-account']
+router.post('/question-summary', function(req, res){
+    var type = req.session.data['organisation-type']
 
-    if (newAccount) {
-        res.redirect('mand-qs-july23-2/organisation-name')
+    if (type == "Non-limited company") {
+        res.redirect("mand-qs-july23-2/org-details-short")
     } else {
-        res.redirect('mand-qs-july23-2/')
+        res.redirect("mand-qs-july23-2/confirm-org-details")
     }
- })
+})
