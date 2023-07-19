@@ -96,3 +96,14 @@ router.post('/start-form-3', function (req, res){
         res.redirect('mand-qs-july23-2/govuk-start')
     }
 })
+
+router.post('/next-from-type', function(req, res){
+    var orgType = req.session.data['organisation-type']
+
+    if (orgType == "Non-limited company") {
+        res.redirect('mand-qs-july23-2/funding-amount')
+    } else {
+        res.redirect('mand-qs-july23-2/organisation-ch-number')
+    }
+
+})
