@@ -145,9 +145,10 @@ router.post('/type-next', function(req, res){
 })
 
 router.post('/question-summary', function(req, res){
-    var type = req.session.data['organisation-type']
+    var chNum = req.session.data['organisation-ch-number']
+    var ccNum = req.session.data['organisation-cc-number']
 
-    if (type == "Non-limited company") {
+    if (chNum || ccNum) {
         res.redirect("mand-qs-july23-2/org-details-short")
     } else {
         res.redirect("mand-qs-july23-2/confirm-org-details")
