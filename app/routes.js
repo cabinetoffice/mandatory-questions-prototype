@@ -88,10 +88,12 @@ router.post('/start-form-3', function (req, res){
     var type = req.session.data['organisation-type']
     var loggedin = req.session.data['login-email']
 
-    if (name != null && address != null && type != null){
-        res.redirect('mand-qs-july23-2/funding-amount')
-    } else if (loggedin) {
-        res.redirect('mand-qs-july23-2/organisation-name')
+    if (loggedin) {
+        if (name != null && address != null && type != null){
+            res.redirect('mand-qs-july23-2/funding-amount')
+        } else {
+            res.redirect('mand-qs-july23-2/organisation-name')
+        }
     } else {
         res.redirect('mand-qs-july23-2/govuk-start')
     }
@@ -107,3 +109,13 @@ router.post('/next-from-type', function(req, res){
     }
 
 })
+
+router.post('/next-from-privpol', function(req, res){
+    var newAccount = req.session.data['new-account']
+
+    if (newAccount) {
+        res.redirect('mand-qs-july23-2/organisation-name')
+    } else {
+        res.redirect('mand-qs-july23-2/')
+    }
+ })
