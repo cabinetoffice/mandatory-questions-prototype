@@ -28,10 +28,16 @@ router.post('/start-form', function (req, res){
 router.post('/account-match', function(request, response) {
 
     var matchAcct = request.session.data['account-match']
+    var adminRecognised = request.session.data['admin-match']
+
     if (matchAcct == "app"){
         response.redirect("/one-login-july23/matching-account")
     } else if (matchAcct == "admin") {
-        response.redirect("/one-login-july23/admin-profile")
+        if (adminRecognised == "returning") {
+            response.redirect("/one-login-july23/admin-profile-full")
+        } else {
+            response.redirect("/one-login-july23/admin-profile")
+        }
     } else {
         response.redirect("/one-login-july23/profile")
     }
