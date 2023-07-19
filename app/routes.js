@@ -149,8 +149,8 @@ router.post('/question-summary', function(req, res){
     var ccNum = req.session.data['organisation-cc-number']
 
     if (chNum || ccNum) {
-        res.redirect("mand-qs-july23-2/org-details-short")
-    } else {
         res.redirect("mand-qs-july23-2/confirm-org-details")
+    } else {
+        res.redirect("mand-qs-july23-2/short-org-details")
     }
 })
