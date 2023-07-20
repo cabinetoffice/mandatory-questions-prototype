@@ -106,7 +106,7 @@ router.post('/transfer-account-2', function(req, res){
     var transferAccount = req.session.data['transfer-account']
 
     if (transferAccount == "link-yes") {
-        res.redirect("mand-qs-july23-2/accounts-linked")
+        res.redirect("mand-qs-july23-2/accounts-linked?organisation-name=Organisation&organisation-address=Address&organisation-type=Other&organisation-ch-number=11111111&organisation-cc-number=11111111")
     } else {
         res.redirect("mand-qs-july23-2/individual")
     }
@@ -151,6 +151,6 @@ router.post('/question-summary', function(req, res){
     if (chNum || ccNum) {
         res.redirect("mand-qs-july23-2/confirm-org-details")
     } else {
-        res.redirect("mand-qs-july23-2/short-org-details")
+        res.redirect("mand-qs-july23-2/org-details-short")
     }
 })
