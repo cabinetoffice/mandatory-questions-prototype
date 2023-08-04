@@ -16,87 +16,89 @@
       classes: "govuk-button--secondary"
     }) }}
 
-    <h2 class="govuk-heading-m">Who can apply</h2>
-    {{ govukCheckboxes({
-      name: "who-can-apply",
-      classes: "govuk-checkboxes--small",
-      items: [
-        {
-          value: "individual",
-          text: "Personal/indivdual"
-        },
-        {
-          value: "public",
-          text: "Public sector"
-        },
-        {
-          value: "private",
-          text: "Private sector"
-        },
-        {
-          value: "non-profit",
-          text: "Non profit"
-        }
-      ]
-    }) }}
+    <form class="form" action="../find-migration-aug23/returning-search" method="post">
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Location</h2>
-    {{ govukCheckboxes({
-      name: "who-can-apply",
-      classes: "govuk-checkboxes--small",
-      items: [
-        {
-          value: "national",
-          text: "National"
-        },
-        {
-          value: "england",
-          text: "England"
-        },
-        {
-          value: "ne-england",
-          text: "North East England",
-          selected: true
-        },
-        {
-          value: "nw-england",
-          text: "North West England",
-          selected: true
-        },
-        {
-          value: "se-england",
-          text: "South East England"
-        },
-        {
-          value: "sw-england",
-          text: "South West England"
-        },
-        {
-          value: "midlands",
-          text: "Midlands"
-        },
-        {
-          value: "scotland",
-          text: "Scotland"
-        },
-        {
-          value: "wales",
-          text: "Wales"
-        },
-        {
-          value: "ni",
-          text: "Northern Ireland"
-        }
-      ]
-    }) }}
+      <h2 class="govuk-heading-m">Who can apply</h2>
+      {{ govukCheckboxes({
+        name: "who-can-apply",
+        classes: "govuk-checkboxes--small",
+        items: [
+          {
+            value: "Personal/individual",
+            text: "Personal/indivdual"
+          },
+          {
+            value: "Public sector",
+            text: "Public sector"
+          },
+          {
+            value: "Private sector",
+            text: "Private sector"
+          },
+          {
+            value: "Non profit",
+            text: "Non profit"
+          }
+        ]
+      }) }}
+  
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+  
+      <h2 class="govuk-heading-m">Location</h2>
+      {{ govukCheckboxes({
+        name: "locations",
+        classes: "govuk-checkboxes--small",
+        items: [
+          {
+            value: "National",
+            text: "National"
+          },
+          {
+            value: "England",
+            text: "England"
+          },
+          {
+            value: "North East England",
+            text: "North East England",
+            selected: true
+          },
+          {
+            value: "North West England",
+            text: "North West England",
+            selected: true
+          },
+          {
+            value: "South East Englandd",
+            text: "South East England"
+          },
+          {
+            value: "South West England",
+            text: "South West England"
+          },
+          {
+            value: "Midlands",
+            text: "Midlands"
+          },
+          {
+            value: "Scotland",
+            text: "Scotland"
+          },
+          {
+            value: "Wales",
+            text: "Wales"
+          },
+          {
+            value: "Northern Ireland",
+            text: "Northern Ireland"
+          }
+        ]
+      }) }}
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <h2 class="govuk-heading-m">How much you can get</h2>
     {{ govukCheckboxes({
-      name: "who-can-apply",
+      name: "amount-funding",
       classes: "govuk-checkboxes--small",
       items: [
         {
@@ -150,19 +152,22 @@
 
     {{ govukButton({
       text: "Clear date",
-      classes: "govuk-button--secondary"
+      classes: "govuk-button--secondary",
+      href: "#"
     }) }}
 
     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Apply filters"
+        text: "Apply filters",
+        href: "#"
       }) }}
     
       {{ govukButton({
         text: "Clear all filters",
-        classes: "govuk-button--secondary"
+        classes: "govuk-button--secondary",
+        href: "#"
       }) }}
     </div>
 
@@ -170,13 +175,14 @@
 
     {{ govukButton({
       text: "Save search",
-      classes: "govuk-button--secondary",
-      href: "../find-migration-aug23/returning-search"
+      classes: "govuk-button--secondary"
     }) }}
 
     <p>Saving your search will make it quicker to find relevant grants.</p>
 
   </div>
+
+</form>
 
   <div class="govuk-grid-column-two-thirds">
     

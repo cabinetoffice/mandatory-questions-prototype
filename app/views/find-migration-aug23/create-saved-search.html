@@ -1,5 +1,21 @@
 {% extends "layouts/main.html" %}
 
+{% set typehtml %}
+  <ul class='govuk-list govuk-list--bullet'>
+    {% for who in data['who-can-apply'] %}
+      <li>{{ who }}</li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
+{% set locationshtml %}
+  <ul class='govuk-list govuk-list--bullet'>
+    {% for location in data['locations'] %}
+      <li>{{ location }}</li>
+    {% endfor %}
+  </ul>
+{% endset %}
+
 {% block pageTitle %}
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -27,9 +43,7 @@
             text: "Who can apply"
           },
           value: {
-            html: "<ul class='govuk-list govuk-list--bullet'>
-              <li>Personal/individual</li>
-            </ul>"
+            html: typehtml
           }
         },
         {
@@ -37,10 +51,7 @@
             text: "Location"
           },
           value: {
-            html: "<ul class='govuk-list govuk-list--bullet'>
-              <li>North East England</li>
-              <li>North West England</li>
-            </ul>"
+            html: locationshtml
           }
         }
         ]
