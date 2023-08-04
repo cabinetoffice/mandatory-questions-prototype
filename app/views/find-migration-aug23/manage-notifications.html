@@ -1,5 +1,9 @@
 {% extends "layouts/main.html" %}
 
+{% set searchname %} 
+  <a href='#'> {{ data['search-name'] }} </a>
+{% endset %}
+
 {% block pageTitle %}
   Manage your notifications – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -74,7 +78,7 @@
           ],
           [
             {
-              html: "<a href='#'>Your first saved search</a>"
+              html: searchname
             },
             {
               text: "You saved this search on 1 August 2023 at 1:05pm."
