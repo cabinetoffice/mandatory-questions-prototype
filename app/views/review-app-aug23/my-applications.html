@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Your applications – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-l">View your applications</h1>
+
+<p>You can see all of your current and past applications below.</p>
+<p>You can continue to work on any applications that are in progress, and view the details of any you have already submitted.</p>
+
+{{ govukTable({
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Date submitted"
+    },
+    {
+      text: "Closing date"
+    },
+    {
+      text: "View"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: "<a href='#' class='govuk-link'>Grant In Progress</a>"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--blue">
+          In progress
+        </strong>'
+      },
+      {
+        text: "-"
+      },
+      {
+        text: "20/02/2024"
+      },
+      {
+        html: "<a href='../review-app-aug23/application-main' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        html: "<a href='#' class='govuk-link'>Prototyping Test Grant</a>"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--purple">
+          Submitted
+        </strong>'
+      },
+      {
+        text: '1/06/2023'
+      },
+      {
+        text: '30/12/2023'
+      },
+      {
+        html: "<a href='../review-app-aug23/review-submitted-app' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        html: "<a href='#' class='govuk-link'>Third Grant</a>"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--purple">
+          Submitted
+        </strong>'
+      },
+      {
+        text: '2/04/2023'
+      },
+      {
+        text: '10/04/2023'
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: 'Back to your account',
+  classes: "govuk-button--secondary"
+}) }}
+{% endblock %}

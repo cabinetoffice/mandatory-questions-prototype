@@ -154,3 +154,23 @@ router.post('/question-summary', function(req, res){
         res.redirect("mand-qs-july23-2/org-details-short")
     }
 })
+
+//Find migration (August 2023) routes
+router.post("/find-privpol-continue", function(req,res){
+
+    var route = req.session.data['route']
+
+    if (route == "manage") {
+        res.redirect("find-migration-aug23/manage-notifications")
+    } else if (route == "updates") {
+        res.redirect("find-migration-aug23/manage-notifications-banner")
+    } else {
+        res.redirect("find-migration-aug23/create-saved-search")
+    }
+
+})
+
+//Re-view application (August 2023) routes
+router.post('/confirm-address-change', function(req,res){
+    res.redirect('review-app-aug23/application-summary')
+})

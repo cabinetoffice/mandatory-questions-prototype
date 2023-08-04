@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Your application – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<span class="govuk-caption-l">Prototyping Test Grant</span>
+<h1 class="govuk-heading-l">Your application</h1>
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Eligibility"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Do you meet the eligibility criteria?"
+      },
+      value: {
+        text: "Yes, my organisation meets the eligibility criteria"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Your organisation"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: "Sample organisation"
+      }
+    },
+    {
+      key: {
+        text: "Address"
+      },
+      value: {
+        html: "10 Fictional Road<br/>
+        Townton<br/>
+        Shireborough<br/>
+        P05 C0D"
+      }
+    },
+    {
+      key: {
+        text: "Organisation type"
+      },
+      value: {
+        html: "Registered charity"
+      }
+    },
+    {
+      key: {
+        text: "Companies House number"
+      },
+      value: {
+        html: "-"
+      }
+    },
+    {
+      key: {
+        text: "Charity Commission number"
+      },
+      value: {
+        html: "012345678"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Funding"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Amount of funding required"
+      },
+      value: {
+        text: "£1000"
+      }
+    },
+    {
+      key: {
+        text: "Where this funding will be spent"
+      },
+      value: {
+        html: "North East England<br/>North West England"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Custom section"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Write a short text response"
+      },
+      value: {
+        text: "Short text short text short text"
+      }
+    },
+    {
+      key: {
+        text: "Write a long text response"
+      },
+      value: {
+        html: "<p>This is a long text response. This long text response exists to test the display of long blocks of text.</p><p>As it once was it will never be again, as it will be it has never been. The hollows left between things are also things, these little emptinesses are themselves form and form is in turn comprised of emptiness.</p><p>Tomorrow, yesterday, today, last month, last week, next week, next month, never, always, occasionally, sometimes, infrequently, often, okay this is probably long enough for testing purposes.</p>"
+      }
+    },
+    {
+      key: {
+        text: "Upload a file"
+      },
+      value: {
+        text: "Uploaded file.pdf"
+      }
+    },
+    {
+      key: {
+        text: "Choose an option"
+      },
+      value: {
+        text: "Option 1"
+      }
+    },
+    {
+      key: {
+        text: "Choose multiple options"
+      },
+      value: {
+        html: "Eeny<br/>Meeny<br/>Miney<br/>Mo<br/>"
+      }
+    },
+    {
+      key: {
+        text: "Pick a date"
+      },
+      value: {
+        text: "11 May 2024"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Download a copy of your application</h2>
+<p>You can <img src="/public/files/downloadicon.svg" height="20" alt=""> <a href="/public/files/sample.odt" download="sample" class="govuk-link">Download a copy of your answers (ODT, 0.63 kB)</a> for future reference.</p>
+
+{{ govukButton({
+  text: "Return to your profile",
+  classes: "govuk-button--secondary",
+  href: "../review-app-aug23//my-applications"
+}) }}
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Manage your notifications – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukNotificationBanner({
+        text: 'You have signed up for updates about new grants.',
+        type: 'success'
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        Manage your notifications and saved searches
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Updates about new grants
+      </h2>
+
+      <p>
+        You signed up for updates on 6 July 2022 at 11:13am.
+      </p>
+
+      {{ govukButton({
+        text: 'View updates',
+        classes: 'govuk-button--secondary'
+      }) }}
+
+      <p>
+        <a href="#">Unsubscribe from updates about new grants</a>.
+      </p>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    </div>
+    <div class="govuk-grid-column-full">
+      <h2 class="govuk-heading-m">
+        Saved searches and grants you are following:
+      </h2>
+
+      {% from "govuk/components/table/macro.njk" import govukTable %}
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Name"
+          },
+          {
+            text: "Details"
+          },
+          {
+            text: "Manage updates and searches"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "General Purpose Grant"
+            },
+            {
+              text: "You signed up for updates on 5 July 2023 at 1:05pm."
+            },
+            {
+              html: "<a href='#'>Unsubscribe</a>"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>Your first saved search</a>"
+            },
+            {
+              text: "You saved this search on 3 July 2023 at 1:05pm."
+            },
+            {
+              html: "<a href='#'>Delete</a>"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>Your first saved search</a>"
+            },
+            {
+              text: "You saved this search on 3 July 2023 at 2:00pm."
+            },
+            {
+              html: "<a href='#'>Delete</a>"
+            }
+          ]
+        ]
+      }) }}
+    </div>
+  </div>
+
+{% endblock %}

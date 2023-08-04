@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Manage your notifications – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Manage your notifications</h1>
+    <p>To manage your notifications, you need to sign in with GOV.UK One Login.</p>
+    <p>If you do not have a GOV.UK One Login, you can create one.</p>
+    <p>If you want to unsubscribe from notifications without creating a GOV.UK One Login, you can use the unsubscribe link in the emails we send to you.</p>
+
+    {{ govukButton({
+      text: "Continue to One Login",
+      href: "..find-migration-aug23/onelogin-start"
+    }) }}
+  </div>
+</div>
+
+{% endblock %}
