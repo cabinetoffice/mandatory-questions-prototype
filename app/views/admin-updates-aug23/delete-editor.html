@@ -1,0 +1,28 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Remove an editor – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">editor.two@grant.com</span>
+    <h1 class="govuk-heading-l">Remove an editor</h1>
+
+    <p class="govuk-body">if you remove editor.two@grant.com as an editor, they will no longer be able to view or edit this grant or any associated adverts and application forms.</p>
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Remove editor",
+        classes: "govuk-button--warning"
+      }) }}
+
+      <a class="govuk-link" href="admin-updates-aug23/editor-list">Cancel</a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

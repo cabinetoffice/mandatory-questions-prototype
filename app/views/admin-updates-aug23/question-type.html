@@ -1,0 +1,192 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Change a question's type – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form
+      action="admin-updates-aug23/edit-question"
+      method="post"
+      class="form">
+      <span class="govuk-caption-l">{{data['section-name']}}
+      </span>
+      <h1 class="govuk-heading-l">
+        How would you like this question to be answered?
+      </h1>
+
+      <div class="govuk-inset-text">
+        If you change the way that applicants answer this question, you will lose any changes you have made to the question's settings. The question's title and description will be kept.
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <p class="govuk-body">Choose how you would like your question to be answered.</p>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="short-answer" name="new-question-type" type="radio"
+                value="short-answer">
+              <label class="govuk-label govuk-radios__label" for="short-answer">
+                Short answer
+                <p class="govuk-body-s">Can have a maximum of 250 characters entered.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Shortanswer.png" alt="Applicant view of a short text question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="long-answer" name="new-question-type" type="radio"
+                value="long-answer" {%if radio %} checked {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="long-answer">
+                Long answer
+                <p class="govuk-body-s">Can have a maximum of 6000 characters entered.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Longanswer.png" alt="Applicant view of a long answer question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="yes-no-answer" name="new-question-type" type="radio"
+                value="yes-no-answer" {%if checkbox %} checked {% endif %}>
+              <label class="govuk-label govuk-radios__label" for="yes-no-answer">
+                Yes/No
+                <p class="govuk-body-s">Allows one option to be selected.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Yesno.png" alt="Applicant view of a yes or no question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="multi-choice-answer" name="new-question-type" type="radio"
+                value="multi-choice-answer">
+              <label class="govuk-label govuk-radios__label" for="multi-choice-answer">
+                Multiple choice
+                <p class="govuk-body-s">Allows just one option to be selected from multiple.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Select.png" alt="Applicant view of a single selection question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="multi-selection-answer" name="new-question-type" type="radio"
+                value="multi-selection-answer">
+              <label class="govuk-label govuk-radios__label" for="multi-selection-answer">
+                Multiple select
+                <p class="govuk-body-s">Allows more than one option to be selected from multiple.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Multiselect.png" alt="Applicant view of a multiple select question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="upload-answer" name="new-question-type" type="radio"
+                value="upload-answer">
+              <label class="govuk-label govuk-radios__label" for="upload-answer">
+                Document upload
+                <p class="govuk-body-s">Allows all documents except .xls and .exe to be uploaded.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Docupload.png" alt="Applicant view of a document upload question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="date-answer" name="new-question-type" type="radio"
+                value="date-answer">
+              <label class="govuk-label govuk-radios__label" for="date-answer">
+                Date
+                <p class="govuk-body-s">Allows a date in DD/MM/YYYY format to be entered.</p>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      How will this look?
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <img src="/public/images/Date.png" alt="Applicant view of a date question"
+                      style="max-width:75%;">
+                  </div>
+                </details>
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button" data-module="govuk-button">Save and continue</button>
+          <a class="govuk-link" href="admin-updates-aug23/question-preview">Cancel</a>
+        </div>
+
+      </div>
+    </form>
+</div>
+
+{% endblock %}

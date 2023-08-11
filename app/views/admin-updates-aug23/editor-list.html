@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Grant editors – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Manage grant editors</h1>
+
+  {{ govukTable({
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Email"
+      },
+      {
+        text: "Role"
+      },
+      {
+        text: "Actions"
+      }
+    ],
+    rows: [
+      [
+        {
+          text: "your.name@grant.email"
+        },
+        {
+          text: "Owner"
+        },
+        {
+          text: "-"
+        }
+      ],
+      [
+        {
+          text: "editor.two@grant.email"
+        },
+        {
+          text: "Editor"
+        },
+        {
+          html: "<a href='admin-updates-aug23/delete-editor'>Remove editor</a>"
+        }
+      ],
+      [
+        {
+          text: "editor.three@grant.email"
+        },
+        {
+          text: "Editor"
+        },
+        {
+          html: "<a href=''>Remove editor</a>"
+        }
+      ]
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Add new editor",
+    href: "admin-updates-aug23/add-editor"
+  }) }}
+
+{% endblock %}

@@ -5,5 +5,8 @@ module.exports = {
   'address-town': 'Townton',
   'address-county': 'Countyshire',
   'address-postcode': 'P05 C0D',
-  'search-name': 'My first saved search'
+  'search-name': 'My first saved search',
+
+  'section-name': 'Custom section',
+  'question-name': 'Question 2'
 }

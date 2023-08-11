@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Grant editors – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% set userlist = [{email:"your.name@grants.com",role:"Owner"},{email:"editor.two@grants.com", role:"Editor"},{email: "editor.three@grants.com", role:"Editor"}] %}
+
+{% set userrows %}
+  [
+  {% for item in userlist %}
+    [
+    {
+      text: "{{item.email}}"
+    },
+    {
+      text: "{{item.role}}"
+    },
+    {
+      html: ""
+    }
+    ],
+  {% endfor %}
+  ]
+{% endset %}
+
+{% set cutlength = userrows|length - 9 %}
+{% set cutuserrows = userrows|truncate(cutlength,true,"") + " ]" %}
+
+{% block content %}
+
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Manage grant editors</h1>
+
+  {% for item in userlist %}
+  <p class="govuk-body"> {{item.email}} is an {{item.role}} </p>
+  {% endfor %}
+
+  <p>{{cutlength}}</p>
+  <p>{{userrows}}</p>
+  <p>{{cutuserrows}}</p>
+  
+  {{ govukTable({
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Email"
+      },
+      {
+        text: "Role"
+      },
+      {
+        text: "Actions"
+      }
+    ],
+    rows: cutuserrows
+  }) }}
+
+  {{ govukButton({
+    text: "Add new editor",
+    href: "admin-updates-aug23/add-editor"
+  }) }}
+
+{% endblock %}

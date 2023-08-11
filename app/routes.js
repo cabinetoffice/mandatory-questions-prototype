@@ -174,3 +174,40 @@ router.post("/find-privpol-continue", function(req,res){
 router.post('/confirm-address-change', function(req,res){
     res.redirect('review-app-aug23/application-summary')
 })
+
+//Admin authorship update (August 2023) routes
+router.post('/reorder-sections', function(req, res){
+    res.redirect('admin-updates-aug23/build-form-swapped')
+})
+
+router.post('/unreorder-sections', function(req, res){
+    res.redirect('admin-updates-aug23/build-form')
+})
+
+router.post('/reorder-qs', function(req, res){
+    res.redirect('admin-updates-aug23/edit-section-swapped')
+})
+
+router.post('/unreorder-qs', function(req, res){
+    res.redirect('admin-updates-aug23/edit-section')
+})
+
+router.get('/back-to-build', function(req,res){
+    returnpage = req.session.data['source']
+
+    if (returnpage == "swapped") {
+        res.redirect('admin-updates-aug23/build-form-swapped')
+    } else {
+        res.redirect('admin-updates-aug23/build-form')
+    }
+})
+
+router.post('/back-to-section', function(req, res){
+    returnpage = req.session.data['sectionstate']
+
+    if (returnpage == "swapped") {
+        res.redirect('admin-updates-aug23/edit-section-swapped')
+    } else {
+        res.redirect('admin-updates-aug23/edit-section')
+    }
+})

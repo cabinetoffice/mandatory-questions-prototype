@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add an editor – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Prototyping Test Grant</span>
+    <h1 class="govuk-heading-l">Add an editor</h1>
+
+    <form action="admin-updates-aug23/editor-list-banner" method="post">
+    {{ govukInput({
+      label: {
+        text: "New editor's email address",
+        classes: "govuk-label--m",
+        isPageHeading: false
+      },
+      hint: {
+        text: "We will send an email to this address inviting them to edit this grant."
+      },
+      id: "editor-email",
+      name: "editor-email"
+    }) }}
+
+    {{ govukButton({
+      text: "Add new editor"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+{% endblock %}

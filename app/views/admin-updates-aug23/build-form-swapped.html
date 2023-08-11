@@ -1,0 +1,375 @@
+{% extends "layouts/main.html" %}
+
+{% set sectionNumName = "4. " + data['section-name'] %}
+
+{% block pageTitle %}
+  Build an application form – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Build an application form</h1>
+
+  <p>Use this service to build an application form for your grant.</p>
+  <p>Applicants will use this application form to apply on <a href="#">Find a grant</a></p>
+
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "1. Eligibility"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Eligibility statement"
+        },
+        value: {
+          html: "<strong class='govuk-tag'>Completed</strong>"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "eligibility statement"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "2. Required checks"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Due diligence checks"
+        },
+        value: {
+          html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "due diligence checks"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "3. Second custom section"
+      },
+      actions: {
+        items: [
+        {
+          html: '<button class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px" disabled>
+            Up
+          </button>'
+        },
+        {
+          html: '<form action="../unreorder-sections" method="post">
+            <button class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px">
+            Down
+            </button>
+          </form>'
+        },
+        {
+          href: '#',
+          text: 'Edit section'
+        }
+        ]
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 5"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 5"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 6"
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 6"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 7"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 7"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 8"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 8"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: sectionNumName
+      },
+      actions: {
+        items: [
+        {
+          html: '<form action="../unreorder-sections" method="post">
+            <button class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px">Up</button>
+          </form>'
+        },
+        {
+          html: '<button class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px">
+            Down
+          </button>'
+        },
+        {
+          href: 'admin-updates-aug23/edit-section?source=swapped',
+          text: 'Edit section'
+        }
+        ]
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 1"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 1"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: data['question-name']
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "admin-updates-aug23/question-preview?sectionstate=normal",
+              text: "Edit",
+              visuallyHiddenText: "Question 2"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 3"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 3"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 4"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 4"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "5. Third custom section"
+      },
+      actions: {
+        items: [
+        {
+          html: '<button class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px">
+            Up
+          </button>'
+        },
+        {
+          html: '<button disabled="disabled" aria-disabled="true" class="govuk-button" data-module="govuk-button" style="margin-bottom: 0px">
+            Down
+          </button>'
+        },
+        {
+          href: '#',
+          text: 'Edit section'
+        }
+        ]
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 9"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 9"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 10"
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 10"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 11"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 11"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 12"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 12"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Add a new section
+  </button>
+
+  <h2 class="govuk-heading-m">Have you finished building your application form?</h2>
+  <p>If you have finished building your application form, you can publish it.</p>
+
+  <div class="govuk-button-group">
+    <button class="govuk-button" data-module="govuk-button">
+      Publish
+    </button>
+    <a class="govuk-link" href="/grant-summary">Exit</a>
+  </div>
+
+{% endblock %}

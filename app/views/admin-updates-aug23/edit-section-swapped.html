@@ -1,0 +1,155 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Edit a section – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Edit section</h1>
+
+  <h2 class="govuk-heading-m"> {{data['section-name']}} </h2>
+
+  {{ govukButton({
+    href: "admin-updates-aug23/rename-section?sectionstate=swapped",
+    text: "Change section title",
+    classes: "govuk-button--secondary"
+  })}}
+
+  <h2 class="govuk-heading-m">Questions</h2>
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: data['question-name']
+        },
+        value: {
+          text: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              html: '
+              <div class="govuk-button-group">
+                <form>
+                  <button disabled aria-disabled="true" class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Up</button>
+                </form>
+                <form action="../unreorder-qs" method="post">
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Down</button>
+                </form>
+              </div>'
+            },
+            {
+              href: "admin-updates-aug23/question-preview?sectionstate=swapped",
+              text: "Edit",
+              visuallyHiddenText: "Question 2"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 1"
+        },
+        value: {
+          text: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              html: '
+              <div class="govuk-button-group">
+                <form action="../unreorder-section" method="post">
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Up</button>
+                </form>
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Down</button>
+                </form>
+              </div>'
+            },
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 1"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 3"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              html: '
+              <div class="govuk-button-group">
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Up</button>
+                </form>
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px">Down</button>
+                </form>
+              </div>'
+            },
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 3"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 4"
+        },
+        value: {
+          text: "Date"
+        },
+        actions: {
+          items: [
+            {
+              html: '
+              <div class="govuk-button-group">
+                <form action="/build-form" method="get">
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px" form="moveitem">Up</button>
+                </form>
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px" disabled>Down</button>
+                </form>
+              </div>'
+            },
+            {
+              href: "#",
+              text: "Edit",
+              visuallyHiddenText: "Question 4"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Add a new question",
+    classes: "govuk-button--secondary"
+  }) }}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save changes",
+      href: "/back-to-build"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl">
+  
+    <a class="govuk-link" href="/back-to-build">Cancel</a>
+  </div>
+
+{% endblock %}
+
