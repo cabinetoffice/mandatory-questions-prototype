@@ -1,0 +1,284 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Search results – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-l">Search results</h1>
+    <p>We've found <strong>3</strong> grants</p>
+
+    {{ govukButton({
+      text: "Clear all filters",
+      classes: "govuk-button--secondary"
+    }) }}
+
+      <h2 class="govuk-heading-m">Who can apply</h2>
+      {{ govukCheckboxes({
+        name: "who-can-apply",
+        classes: "govuk-checkboxes--small",
+        items: [
+          {
+            value: "Personal/individual",
+            text: "Personal/indivdual"
+          },
+          {
+            value: "Public sector",
+            text: "Public sector"
+          },
+          {
+            value: "Private sector",
+            text: "Private sector"
+          },
+          {
+            value: "Non profit",
+            text: "Non profit"
+          }
+        ]
+      }) }}
+  
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+  
+      <h2 class="govuk-heading-m">Location</h2>
+      {{ govukCheckboxes({
+        name: "locations",
+        classes: "govuk-checkboxes--small",
+        items: [
+          {
+            value: "Global",
+            text: "Global"
+          },
+          {
+            value: "National",
+            text: "National"
+          },
+          {
+            value: "England",
+            text: "England"
+          },
+          {
+            value: "London",
+            text: "London"
+          },
+          {
+            value: "Yorkshire and the Humber",
+            text: "Yorkshire and the Humber"
+          },
+          {
+            value: "Midlands",
+            text: "Midlands"
+          },
+          {
+            value: "East Midlands",
+            text: "East Midlands"
+          },
+          {
+            value: "West Midlands",
+            text: "West Midlands"
+          },
+          {
+            value: "East England",
+            text: "East England"
+          },
+          {
+            value: "North East England",
+            text: "North East England",
+            selected: true
+          },
+          {
+            value: "North West England",
+            text: "North West England",
+            selected: true
+          },
+          {
+            value: "South East Englandd",
+            text: "South East England"
+          },
+          {
+            value: "South West England",
+            text: "South West England"
+          },
+          {
+            value: "Scotland",
+            text: "Scotland"
+          },
+          {
+            value: "Wales",
+            text: "Wales"
+          },
+          {
+            value: "Northern Ireland",
+            text: "Northern Ireland"
+          }
+        ]
+      }) }}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">How much you can get</h2>
+    {{ govukCheckboxes({
+      name: "amount-funding",
+      classes: "govuk-checkboxes--small",
+      items: [
+        {
+          value: "0-9999",
+          text: "£0 to £9,999"
+        },
+        {
+          value: "10000-49999",
+          text: "£10,000 to £49,999"
+        },
+        {
+          value: "50000-249999",
+          text: "£50,000 to £249,999"
+        },
+        {
+          value: "250000-999999",
+          text: "£250,000 to £999,999"
+        },
+        {
+          value: "1-million-5-million",
+          text: "£1 million to £4.9 million"
+        },
+        {
+          value: "5-million-plus",
+          text: "£5 million plus"
+        }
+      ]
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">Date added</h2>
+    {{ govukDateInput({
+      id: "from",
+      namePrefix: "from",
+      fieldset: {
+        legend: {
+          text: "From"
+        }
+      }
+    }) }}
+    {{ govukDateInput({
+      id: "to",
+      namePrefix: "to",
+      fieldset: {
+        legend: {
+          text: "To"
+        }
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Clear date",
+      classes: "govuk-button--secondary",
+      href: "#"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Apply filters",
+        href: "#"
+      }) }}
+    
+      {{ govukButton({
+        text: "Clear all filters",
+        classes: "govuk-button--secondary",
+        href: "#"
+      }) }}
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    {{ govukButton({
+      text: "Save search",
+      classes: "govuk-button--secondary"
+    }) }}
+
+    <p>Saving your search will make it quicker to find relevant grants.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-two-thirds">
+    
+    {{ govukInput({
+      label: {
+        text: "Search grants",
+        classes: "govuk-label--m"
+      },
+      id: "search",
+      name: "search"
+    }) }}
+
+    {{ govukSelect({
+      id: "sort",
+      name: "sort",
+      label: {
+        text: "Sort by"
+      },
+      items: [
+        {
+          value: "opening",
+          text: "Opening date",
+          selected: true
+        },
+        {
+          value: "closing",
+          text: "Closing date"
+        },
+        {
+          value: "value-htl",
+          text: "Grant value (high to low)"
+        },
+        {
+          value: "value-lth",
+          text: "Grant value (low to high)"
+        }
+      ]
+    }) }}
+
+    <div>
+      <h2 class="govuk-heading-m"><a href="#">Sample Grant</a></h2>
+      <p>This is a sample grant and not representative of any grants on the Find A Grant service. This section would normally contain a short, single-paragraph description of the grant.</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Location</strong> National</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Funding organisation</strong> An Organisation</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Who can apply</strong> Personal/individual</p>
+      <p class="govuk-!-margin-bottom-2"><strong>How much you can get</strong> From £1,000 to £2,000</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Grant scheme size</strong> £1 million</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Opening date</strong> 11 June 2023, 12:01am</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Closing date</strong> 11 June 2024, 12:01am</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    </div>
+    <div>
+      <h2 class="govuk-heading-m"><a href="#">Sample Grant</a></h2>
+      <p>This is a sample grant and not representative of any grants on the Find A Grant service. This section would normally contain a short, single-paragraph description of the grant.</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Location</strong> National</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Funding organisation</strong> An Organisation</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Who can apply</strong> Personal/individual</p>
+      <p class="govuk-!-margin-bottom-2"><strong>How much you can get</strong> From £1,000 to £2,000</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Grant scheme size</strong> £1 million</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Opening date</strong> 11 June 2023, 12:01am</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Closing date</strong> 11 June 2024, 12:01am</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    </div>
+    <div>
+      <h2 class="govuk-heading-m"><a href="#">Sample Grant</a></h2>
+      <p>This is a sample grant and not representative of any grants on the Find A Grant service. This section would normally contain a short, single-paragraph description of the grant.</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Location</strong> National</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Funding organisation</strong> An Organisation</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Who can apply</strong> Personal/individual</p>
+      <p class="govuk-!-margin-bottom-2"><strong>How much you can get</strong> From £1,000 to £2,000</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Grant scheme size</strong> £1 million</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Opening date</strong> 11 June 2023, 12:01am</p>
+      <p class="govuk-!-margin-bottom-2"><strong>Closing date</strong> 11 June 2024, 12:01am</p>
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% set startDateHTML %}
+ <p>{{data['start-date-day']}} {{data['start-date-month']}} {{data['start-date-year']}}</p>
+{% endset %}
+
+{% set endDateHTML %}
+ <p>{{data['end-date-day']}} {{data['end-date-month']}} {{data['end-date-year']}}</p>
+{% endset %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Custom section
+      </h1>
+
+      <p>
+        When you are finished, you can mark this section as ‘completed’.
+      </p>
+      <p>
+        You will still be able to come back and change this section until you submit the whole application form.
+      </p>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "What date will your project start? (optional)"
+            },
+            value: {
+              html: startDateHTML
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "start date"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "What date will your project conclude? (optional)"
+            },
+            value: {
+              html: endDateHTML
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date of conclusion"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "How does your project align with the goals of this grant?"
+            },
+            value: {
+              text: data['goals']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "how your project aligns with the goals of this grant"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Will the funding you are applying for cover the full cost of the project?"
+            },
+            value: {
+              text: data['cost-covered']
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "whether the funding will cover the full cot of your project"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Have you completed this section?
+      </h2>
+
+      {{ govukRadios({
+        name: "section-complete",
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      <form action="#" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and send"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

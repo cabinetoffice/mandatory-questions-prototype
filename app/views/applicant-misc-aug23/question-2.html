@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Question 2 of 4</span>
+      <h1 class="govuk-heading-l">What date will your project conclude? (optional)</h1>
+
+      <form class="form" action="/applicant-misc-aug23/question-3" method="post">
+
+        {{ govukDateInput({
+          id: "end-date",
+          namePrefix: "end-date",
+          hint: {
+            text: "Let us know what date you plan to complete your project by. If you don’t have an exact date, you can skip this question."
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
