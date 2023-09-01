@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add an editor – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">Prototyping Test Grant</span>
+    <h1 class="govuk-heading-l">Add an editor</h1>
+
+    <form action="/editing-and-sharing-sep23/editor-list-banner" method="post">
+    {{ govukInput({
+      label: {
+        text: "New editor's email address",
+        classes: "govuk-label--m",
+        isPageHeading: false
+      },
+      hint: {
+        text: "We will send an email to this address inviting them to edit this grant."
+      },
+      id: "editor-email",
+      name: "editor-email"
+    }) }}
+
+    {{ govukRadios({
+      name: "permissions",
+      fieldset: {
+        legend: {
+          text: "New editor's permissions",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        }
+      },
+      items: [
+        {
+          value: "editor",
+          text: "Editor",
+          hint: {
+            text: "Editors can view, make changes to, and delete your grant and any associated adverts and application forms. They can also add new viewers and editors."
+          }
+        },
+        {
+          value: "viewer",
+          text: "Viewer",
+          hint: {
+            text: "Viewers are able to view your grant and any associated adverts and application forms. They are not able to make changes or add new viewers or editors."
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Add new editor"
+    }) }}
+
+  </form>
+
+  </div>
+</div>
+{% endblock %}

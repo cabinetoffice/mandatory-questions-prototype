@@ -1,0 +1,311 @@
+{% extends "layouts/main.html" %}
+
+{% set sectionNumName = "3. " + data['section-name'] %}
+
+{% block pageTitle %}
+  Preview an application form – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Preview an application form</h1>
+
+  <p>You can preview the questions in this grant application form.</p>
+  <p>Applicants will use this application form to apply on <a href="#">Find a grant</a></p>
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "1. Eligibility"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Eligibility statement"
+        },
+        value: {
+          html: "<strong class='govuk-tag'>Completed</strong>"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "eligibility statement"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "2. Required checks"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Due diligence checks"
+        },
+        value: {
+          html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "due diligence checks"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: sectionNumName
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 1"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "/editing-and-sharing-sep23/viewer-question",
+              text: "View",
+              visuallyHiddenText: "Question 1"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 2"
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 2"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 3"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 3"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 4"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 4"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "4. Second custom section"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 5"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 5"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 6"
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 6"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 7"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 7"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 8"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 8"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "5. Third custom section"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Question 9"
+        },
+        value: {
+          html: "Short answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 9"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 10"
+        },
+        value: {
+          html: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 10"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 11"
+        },
+        value: {
+          html: "Multiple choice"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 11"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Question 12"
+        },
+        value: {
+          html: "Date"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View",
+              visuallyHiddenText: "Question 12"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+    {{ govukButton({
+      text: "Exit preview",
+      href: "/editing-and-sharing-sep23/viewer-overview"
+    }) }}
+
+
+
+{% endblock %}

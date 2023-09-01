@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% set pluralised %}
+ {% if data['permissions'] == "editor" %}
+  an editor
+ {% else %}
+  a viewer
+ {% endif %}
+{% endset %}
+
+{% set bannerhtml %}
+<h3 class='govuk-notification-banner__heading'>
+  We’ve sent an email to {{ data['editor-email' ]}} with a link to become {{pluralised}} for this grant.
+</h3>
+{% endset %}
+
+{% block pageTitle %}
+  Grant editors – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/editing-and-sharing-sep23/grant-overview"
+  }) }}
+
+  {{ govukNotificationBanner({
+    html: bannerhtml,
+    type: 'success'
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Manage grant editors</h1>
+
+  {{ govukTable({
+    firstCellIsHeader: true,
+    head: [
+      {
+        text: "Email"
+      },
+      {
+        text: "Role"
+      },
+      {
+        text: "Actions"
+      }
+    ],
+    rows: [
+    [
+      {
+        text: "your.name@grant.email"
+      },
+      {
+        text: "Owner"
+      },
+      {
+        text: "-"
+      }
+    ],
+    [
+      {
+        text: "editor.two@grant.email"
+      },
+      {
+        text: "Editor"
+      },
+      {
+        html: "<a href=''>Remove editor</a>"
+      }
+    ],
+    [
+      {
+        text: "editor.three@grant.email"
+      },
+      {
+        text: "Editor"
+      },
+      {
+        html: "<a href=''>Remove editor</a>"
+      }
+    ]
+  ]
+  }) }}
+
+  {{ govukButton({
+    text: "Add new editor",
+    href: "/editing-and-sharing-sep23/add-editor"
+  }) }}
+
+{% endblock %}

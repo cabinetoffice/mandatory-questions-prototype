@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Manage grants – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">Manage your grants</h1>
+
+  <p>You can see any currently active grants you have created and manage their details, including creating and editing adverts and application forms.</p>
+
+  {{ govukTable({
+    caption: "Grants you can view",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: true,
+    head: [
+        {
+          text: "Grant"
+        },
+        {
+          text: "Created"
+        },
+        {
+          text: "Actions"
+        }
+      ],
+    rows: [
+        [
+          {
+            text: "Prototyping test grant"
+          },
+          {
+            text: "22 April 2023"
+          },
+          {
+            html: '<a href="/editing-and-sharing-sep23/viewer-overview" class="govuk-link">View details</a>'
+          }
+        ]
+      ]
+  }) }}
+
+  {{ govukTable({
+    caption: "Grants you can edit",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: true,
+    head: [
+        {
+          text: "Grant"
+        },
+        {
+          text: "Created"
+        },
+        {
+          text: "Actions"
+        }
+      ],
+    rows: [
+        [
+          {
+            text: "Wildfires Grant"
+          },
+          {
+            text: "19 December 2022"
+          },
+          {
+            html: '<a href="" class="govuk-link">View details</a>'
+          }
+        ],
+        [
+          {
+            text: "Woodlands Grant"
+          },
+          {
+            text: "7 June 2022"
+          },
+          {
+            html: '<a href="" class="govuk-link">View details</a>'
+          }
+        ]
+      ]
+  }) }}
+
+  {{ govukButton({
+    text: "Add a grant"
+  }) }}
+
+{% endblock %}

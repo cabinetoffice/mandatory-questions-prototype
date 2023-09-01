@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Name your application form – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Give this application form a name
+      </h1>
+
+      <form class="form" action="/editing-and-sharing-sep23/form-empty" method="post">
+
+        {{ govukInput({
+          hint: {
+            html: "Applicants will see this name on the application form. <br> 
+            Choose a name that is specific to your grant. For example “Chargepoint scheme for landlords - phase 2”"
+          },
+          id: "form-name",
+          name: "form-name"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

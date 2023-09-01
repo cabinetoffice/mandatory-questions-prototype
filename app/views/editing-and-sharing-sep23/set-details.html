@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+
+{% set wordLimit =
+  '<div class="govuk-form-group">
+    <label class="govuk-label" for="weight">
+      Number of words
+    </label>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="wordLimit" name="wordLimit" type="text" spellcheck="false">
+      <div class="govuk-input__suffix" aria-hidden="true">words</div>
+    </div>
+  </div>'
+%}
+
+{% set charLimit =
+  '<div class="govuk-form-group">
+    <label class="govuk-label" for="weight">
+      Number of characters
+    </label>
+    <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="charLimit" name="charLimit" type="text" spellcheck="false">
+      <div class="govuk-input__suffix" aria-hidden="true">characters</div>
+    </div>
+  </div>'
+%}
+
+{% block pageTitle %}
+  Set the question's details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="/editing-and-sharing-sep23/section-question" method="post">
+    <h1 class="govuk-heading-l">Enter a question</h1>
+
+    {{ govukInput({
+      label: {
+        text: "Title",
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "This will be shown to applicants as a page title."
+      },
+      id: "question-name",
+      name: "question-name"
+    }) }}
+
+    {{ govukTextarea({
+      label: {
+        text: "Add a description (optional)",
+        classes: "govuk-label--m"
+      },
+      hint: {
+        text: "You do not have to give a description. If you do, be clear about the information you want applicants to give to you."
+      },
+      id: "question-description",
+      name: "question-description"
+    }) }}
+
+    {{ govukRadios({
+      name: "length-limit",
+      fieldset: {
+        legend: {
+          text: "Limit length",
+          classes: "govuk-label--m"
+        }
+      },
+      items: [
+        {
+          value: "words",
+          text: "Word count",
+          conditional: {
+            html: wordLimit
+          }
+        },
+        {
+          value: "char",
+          text: "Character count",
+          conditional: {
+            html: charLimit
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukRadios({
+      name: "optional-question",
+      fieldset: {
+        legend: {
+          text: "Make this question optional?",
+          classes: "govuk-label--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+      {{ govukButton({
+        text: "Save question"
+      }) }}
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Prototyping Test Grant summary page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prototyping test grant
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Grant summary
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Grant name"
+            },
+            value: {
+              text: "Prototyping test grant"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "grant name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "GGIS scheme reference number"
+            },
+            value: {
+              text: "012345678"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "GGIS scheme reference number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Support email address"
+            },
+            value: {
+              text: "name.surname@grants.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "support email address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Grant advert</h2>
+      <p>You have created an advert, but it is not live on Find a Grant.</p>
+      <p><a href="#" class="govuk-link">View or change your advert</a></p>
+
+      <h2 class="govuk-heading-m">Grant application form</h2>
+
+      <p>Build and publish an application form for your grant.</p>
+      <p><a href="/editing-and-sharing-sep23/name-form" class="govuk-link">Build application form</a></p>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+  
+      <div class="app-related-items">
+        <h2 class="govuk-heading-s">Grant editors</h2>
+        <ul class="govuk-list">
+          <li>your.name@grant.email</li>
+          <li>editor.two@grant.email</li>
+          <li>editor.three@grant.email</li>
+        </ul>
+        
+        {{govukButton({ 
+          text: "Manage editors",
+          href: "/editing-and-sharing-sep23/editor-list",
+          classes: "govuk-button--secondary"
+        }) }}
+    </div>
+
+    </div>
+  </div>
+
+{% endblock %}

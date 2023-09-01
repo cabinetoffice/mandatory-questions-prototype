@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Question preview</span>
+      <h1 class="govuk-heading-l">Question 1</h1>
+
+        {{ govukInput({
+          id: "q1-preview",
+          name: "q1-preview",
+          hint: {
+            text: "This is the description of Question 1. This question is an example of how a short answer question would look."
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Exit preview",
+          classes: "govuk-button--secondary",
+          href: "/editing-and-sharing-sep23/viewer-form"
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

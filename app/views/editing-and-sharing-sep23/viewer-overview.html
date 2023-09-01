@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Prototyping Test Grant summary page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/editing-and-sharing-sep23/viewer-list"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prototyping test grant
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Grant summary
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Grant name"
+            },
+            value: {
+              text: "Prototyping test grant"
+            }
+          },
+          {
+            key: {
+              text: "GGIS scheme reference number"
+            },
+            value: {
+              text: "012345678"
+            }
+          },
+          {
+            key: {
+              text: "Support email address"
+            },
+            value: {
+              text: "name.surname@grants.com"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Grant advert</h2>
+      <p>You have created an advert, but it is not live on Find a Grant.</p>
+      <p><a href="#" class="govuk-link">View advert</a></p>
+
+      <h2 class="govuk-heading-m">Grant application form</h2>
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Application form name"
+          },
+          {
+            text: "Date created"
+          },
+          {
+            text: "Date published"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Prototyping test grant"
+            },
+            {
+              text: "1 July 2023"
+            },
+            {
+              text: "-"
+            },
+            {
+              html: "<a href='/editing-and-sharing-sep23/viewer-form'>View</a>"
+            }
+          ]
+        ]
+      }) }}
+
+    </div>
+
+  </div>
+
+{% endblock %}

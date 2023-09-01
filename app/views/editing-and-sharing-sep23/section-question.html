@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Edit a section – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+  <span class="govuk-caption-l">Prototyping test grant</span>
+  <h1 class="govuk-heading-l">Edit section</h1>
+
+  <h2 class="govuk-heading-m"> {{data['section-name']}} </h2>
+
+  {{ govukButton({
+    href: "/editing-and-sharing-sep23/rename-section",
+    text: "Change section title",
+    classes: "govuk-button--secondary"
+  })}}
+
+  <h2 class="govuk-heading-m">Questions</h2>
+
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: data['question-name']
+        },
+        value: {
+          text: "Long answer"
+        },
+        actions: {
+          items: [
+            {
+              html: '
+              <div class="govuk-button-group">
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px" disabled aria-disabled="true">Up</button>
+                </form>
+                <form>
+                  <button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="margin-bottom: 0px" disabled aria-disabled="true">Down</button>
+                </form>
+              </div>'
+            },
+            {
+              href: "/editing-and-sharing-sep23/edit-details",
+              text: "Edit",
+              visuallyHiddenText: "Question 1"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Add a new question",
+    classes: "govuk-button--secondary"
+  }) }}
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Save changes",
+      href: "/editing-and-sharing-sep23/form-section"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--xl">
+  
+    <a class="govuk-link" href="">Cancel</a>
+  </div>
+
+{% endblock %}
+

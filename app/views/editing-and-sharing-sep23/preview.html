@@ -1,0 +1,30 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Preview a question – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Question preview</span>
+    <h1 class="govuk-heading-l">{{data['question-name']}}</h1>
+
+    {{ govukTextarea({
+      name: "preview-field",
+      id: "preview-field",
+      hint: {
+        text: data['question-description']
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Exit preview",
+      classes: "govuk-button--secondary",
+      href: "/editing-and-sharing-sep23/edit-details"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
