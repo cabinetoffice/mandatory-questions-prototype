@@ -69,6 +69,7 @@
 
     {{ govukRadios({
       name: "length-limit",
+      value: data['length-limit'],
       fieldset: {
         legend: {
           text: "Limit length",
@@ -95,6 +96,7 @@
 
     {{ govukRadios({
       name: "optional-question",
+      value: data['optional-question'],
       fieldset: {
         legend: {
           text: "Make this question optional?",
