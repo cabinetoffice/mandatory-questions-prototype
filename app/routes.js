@@ -218,15 +218,15 @@ router.post('/rename-back', function(req,res){
 
     switch(backto){
         case "emptyform":
-            res.redirect('editing-and-sharing-sep23/form-empty');
+            res.redirect('/editing-and-sharing-sep23/form-empty');
             break;
         case "sectionform":
-            res.redirect('editing-and-sharing-sep23/form-section');
+            res.redirect('/editing-and-sharing-sep23/form-section');
             break;
         case "emptysection":
-            res.redirect('editing-and-sharing-sep23/section-empty');
+            res.redirect('/editing-and-sharing-sep23/section-empty');
             break;
         case "questionsection":
-            res.redirect('editing-and-sharing-sep23/section-question');
+            res.redirect('/editing-and-sharing-sep23/section-question');
     }
 })
