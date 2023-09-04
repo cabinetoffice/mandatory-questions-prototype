@@ -211,3 +211,22 @@ router.post('/back-to-section', function(req, res){
         res.redirect('admin-updates-aug23/edit-section')
     }
 })
+
+//Editing and sharing routes (September 2023)
+router.post('/rename-back', function(req,res){
+    var backto = req.session.data['backto'];
+
+    switch(backto){
+        case "emptyform":
+            res.redirect('editing-and-sharing-sep23/form-empty');
+            break;
+        case "sectionform":
+            res.redirect('editing-and-sharing-sep23/form-section');
+            break;
+        case "emptysection":
+            res.redirect('editing-and-sharing-sep23/section-empty');
+            break;
+        case "questionsection":
+            res.redirect('editing-and-sharing-sep23/section-question');
+    }
+})
