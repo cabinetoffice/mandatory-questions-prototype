@@ -111,9 +111,17 @@
       ]
     }) }}
 
-      {{ govukButton({
-        text: "Save question"
-      }) }}
+    {{ govukButton({
+      text: "Save question"
+    }) }}
+
+    <h2 class="govuk-heading-m">Preview question</h2>
+    <p>You can preview how this question will look to an applicant.</p>
+
+    <button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction="/editing-and-sharing-sep23/preview" formmethod="get">
+      Preview question
+    </button>
+
     </form>
   </div>
 </div>
