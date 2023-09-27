@@ -1,0 +1,183 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Prototyping Test Grant summary page – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Prototyping test grant
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Grant summary
+      </h2>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Grant name"
+            },
+            value: {
+              text: "Prototyping test grant"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "grant name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "GGIS scheme reference number"
+            },
+            value: {
+              text: "012345678"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "GGIS scheme reference number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Support email address"
+            },
+            value: {
+              text: "name.surname@grants.com"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "support email address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Grant advert</h2>
+      <p>An advert for this grant is live on Find a grant. The link for your advert is below:</p>
+      <p><a href="#" class="govuk-link">https://this-would-be-your-link.gov.uk</a></p>
+      <p>You can make changes to your advert or unpublish it here:</p>
+      <p><a href="#" class="govuk-link">View or change your advert</a></p>
+
+      <h2 class="govuk-heading-m">Grant application form</h2>
+
+      {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Application form name"
+          },
+          {
+            text: "Date created"
+          },
+          {
+            text: "Date published"
+          },
+          {
+            text: ""
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Prototyping Test Grant"
+            },
+            {
+              text: "11 September 2023"
+            },
+            {
+              text: "20 September 2023"
+            },
+            {
+              html: "<a href='' class='govuk-link'>View</a>"
+            }
+          ]
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">View submitted applications</h2>
+
+      <p>To see who has applied for your grant, you need to view and download your submitted applications.</p>
+
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Application state"
+          },
+          {
+            text: "No of applications"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "In progress"
+            },
+            {
+              text: "5"
+            }
+          ],
+          [
+            {
+              text: "Submitted"
+            },
+            {
+              text: "25"
+            }
+          ]
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "View submitted applications",
+        href: "/submitted-applications"
+      }) }}
+
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+      <h2 class="govuk-heading-m">Required checks</h2>
+
+      <p>You can download the information from the ‘Required checks’ section of your grant advert.</p>
+      <p>You can use this information to carry out due-diligence checks. You can use the Cabinet Office service Spotlight for these checks.</p>
+
+      {{ govukButton({
+        text: "Manage required checks",
+        classes: "govuk-button--secondary",
+        href: "/manage-checks-app"
+      }) }}
+
+    </div>
+
+  </div>
+
+{% endblock %}

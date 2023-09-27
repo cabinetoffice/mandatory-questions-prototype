@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  View submitted applications – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        View submitted applications
+      </h1>
+
+      <h2 class="govuk-heading-m">
+        Applications submitted
+      </h2>
+
+      {{ govukTable({
+        rows:[
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ],
+          [
+            {
+              text: "prototyping-test-grant_sample-org_00000.zip"
+            },
+            {
+              html: '<a href="" class="govuk-link">Download</a>'
+            }
+          ]
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Download all applications</h2>
+
+      <p>You have recieved <b>10 applications</b>.</p>
+
+      <p>
+        <a href="">Download all applications</a> (ZIP, 10 applications, 1 GB)
+      </p>
+
+      {{ govukButton({
+        text: "Back to grant summary",
+        classes: "govuk-button--secondary",
+        href: "/grant-overview-app"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

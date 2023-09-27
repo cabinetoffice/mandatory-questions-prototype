@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% set notificationHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    We couldn't send required checks to Spotlight
+  </h3>
+  <p class="govuk-body">Spotlight could not find the GGIS number for your grant. Check that your grant’s reference number is correct. </p>
+{% endset %}
+
+{% block pageTitle %}
+  Manage required checks – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    {% if data['error'] %}
+      {{ govukNotificationBanner({
+        html: notificationHtml
+      }) }}
+
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Manage required checks</h1>
+    <h2 class="govuk-heading-m">Checks from grant advert</h2>
+
+    <p class="govuk-body">Responses to the required checks section of your grant advert are sent to Spotlight every day at midnight.</p>
+    <p class="govuk-body">Information was last sent to Spotlight on <b>25 September 2023.</b></p>
+
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Application state"
+        },
+        {
+          text: "Number"
+        },
+        {
+          text: "Actions"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Waiting to send"
+          },
+          {
+            text: "5"
+          },
+          {
+            html: '<a href="">Download</a>'
+          }
+        ],
+        [
+          {
+            text: "Sent to Spotlight"
+          },
+          {
+            text: "45"
+          },
+          {
+            html: '<a href="">Download</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    <p class="govuk-body">You can also download all of the responses as one file.</p>
+    <p class="govuk-body">The download will contain separate folders for companies and charities, sole traders, and individuals and local authorities.</p>
+    <p class="govuk-body">
+      <a href="">Download checks from grant advert</a> (ZIP, 20 MB, 50 submissions)
+    </p>
+
+    {{ govukButton({
+      text: "Back to grant summary",
+      href: "",
+      classes: "govuk-button--secondary"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
