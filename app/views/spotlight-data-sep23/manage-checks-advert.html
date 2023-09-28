@@ -1,10 +1,17 @@
 {% extends "layouts/main.html" %}
 
-{% set notificationHtml %}
+{% set refNumberHtml %}
   <h3 class="govuk-notification-banner__heading">
     We couldn't send required checks to Spotlight
   </h3>
   <p class="govuk-body">Spotlight could not find the GGIS number for your grant. Check that your grant’s reference number is correct. </p>
+{% endset %}
+
+{% set connectionFailedHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    We couldn't connect to Spotlight
+  </h3>
+  <p class="govuk-body">The Find a grant service failed to connect to Spotlight. Please contact our support team at <a href="">findagrant@cabinetoffice.gov.uk</a>. </p>
 {% endset %}
 
 {% block pageTitle %}
@@ -20,9 +27,14 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    {% if data['error'] %}
+    {% if data['error']=="refnumber" %}
       {{ govukNotificationBanner({
-        html: notificationHtml
+        html: refNumberHtml
+      }) }}
+
+    {% elif data['error']=="connect" %}
+      {{ govukNotificationBanner({
+        html: connectionFailedHtml
       }) }}
 
     {% endif %}
