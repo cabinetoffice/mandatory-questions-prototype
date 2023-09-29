@@ -40,10 +40,11 @@
     {% endif %}
 
     <h1 class="govuk-heading-l">Manage required checks</h1>
-    <h2 class="govuk-heading-m">Checks from grant advert</h2>
+    <h2 class="govuk-heading-m">Run due diligence checks</h2>
 
-    <p class="govuk-body">Responses to the required checks section of your grant advert are sent to Spotlight every day at midnight.</p>
-    <p class="govuk-body">Information was last sent to Spotlight on <b>25 September 2023.</b></p>
+    <p class="govuk-body">When you advertise on Find a grant it captures all of the information you need to run due diligence checks in Spotlight, a Government owned due diligence tool. </p>
+    <p class="govuk-body">We send the information automatically to Spotlight at midnight each night.</p>
+    <p class="govuk-body">Your information was last sent to Spotlight on <b>25 September 2023.</b></p>
 
     {{ govukTable({
       firstCellIsHeader: true,
@@ -61,17 +62,6 @@
       rows: [
         [
           {
-            text: "Waiting to send"
-          },
-          {
-            text: "5"
-          },
-          {
-            html: '<a href="">Download</a>'
-          }
-        ],
-        [
-          {
             text: "Sent to Spotlight"
           },
           {
@@ -80,11 +70,27 @@
           {
             html: '<a href="">Download</a>'
           }
+        ],
+        [
+          {
+            text: "Waiting to be sent"
+          },
+          {
+            text: "5"
+          },
+          {
+            html: '<a href="">Download</a>'
+          }
         ]
       ]
     }) }}
 
-    <p class="govuk-body">You can also download all of the responses as one file.</p>
+    {{ govukButton({
+      text: "Log in to Spotlight",
+      href: "/spotlight-data-sep23/spotlight"
+    }) }}
+
+    <p class="govuk-body">If you do not use Spotlight, you can download all of the due diligence information to run checks in another service.</p>
     <p class="govuk-body">The download will contain separate folders for companies and charities, sole traders, and individuals and local authorities.</p>
     <p class="govuk-body">
       <a href="">Download checks from grant advert</a> (ZIP, 20 MB, 50 submissions)

@@ -40,23 +40,11 @@
     {% endif %}
 
     <h1 class="govuk-heading-l">Manage required checks</h1>
-    <h2 class="govuk-heading-m">Checks from grant advert</h2>
+    <h2 class="govuk-heading-m">Run due diligence checks</h2>
 
-    <p>You can download the information applicants provide as part of your grant advert.</p>
-    <p>
-      This information is not automatically sent to Spotlight.<br/>
-      It does not contain any changes applicants may have made to this information after starting your grant's application form.
-    </p>
-    <p class="govuk-body">
-      <a href="">Download checks from grant advert</a> (ZIP, 20 MB, 50 submissions)
-    </p>
-
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-
-    <h2 class="govuk-heading-m">Checks from application form</h2>
-
-    <p class="govuk-body">The required checks sections of submitted applications are sent to Spotlight every day at midnight.</p>
-    <p class="govuk-body">Information was last sent to Spotlight on <b>25 September 2023.</b></p>
+    <p class="govuk-body">You application form has been designed to capture all of the information you need to run due diligence checks in Spotlight, a Government owned due diligence tool. </p>
+    <p class="govuk-body">We send the information automatically to Spotlight at midnight each night.</p>
+    <p class="govuk-body">Your information was last sent to Spotlight on <b>25 September 2023.</b></p>
 
     {{ govukTable({
       firstCellIsHeader: true,
@@ -72,18 +60,7 @@
         }
       ],
       rows: [
-        [
-          {
-            text: "Waiting to send"
-          },
-          {
-            text: "5"
-          },
-          {
-            html: '<a href="">Download</a>'
-          }
-        ],
-        [
+          [
           {
             text: "Sent to Spotlight"
           },
@@ -93,11 +70,27 @@
           {
             html: '<a href="">Download</a>'
           }
+        ],
+        [
+          {
+            text: "Waiting to be sent"
+          },
+          {
+            text: "5"
+          },
+          {
+            html: '<a href="">Download</a>'
+          }
         ]
       ]
     }) }}
 
-    <p class="govuk-body">You can also download all of the information from submitted applications as one file.</p>
+    {{ govukButton({
+      text: "Log in to Spotlight",
+      href: "spotlight-data-sep23/spotlight"
+    }) }}
+
+    <p class="govuk-body">If you do not use Spotlight, you can download all of the due diligence information to run checks in another service.</p>
     <p class="govuk-body">The download will contain separate folders for companies and charities, sole traders, and individuals and local authorities.</p>
     <p class="govuk-body">
       <a href="">Download checks from applications</a> (ZIP, 7 MB, 30 submissions)
