@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% if data['organisation-type'] == "Individual" %}
+  {% set pageName = "Your name" %}
+  {% set question = "Enter your name" %}
+  {% set hint = "Enter the name you would like to use for your application." %}
+{% else %}
+  {% set pageName = "Organisation name" %}
+  {% set question = "Enter the name of your organisation" %}
+  {% set hint = "This is the official name of your organisation. It could be the name that is registered with Companies House or the Charities Commission." %}
+{% endif %}
+
+{% block pageTitle %}
+  {{ pageName }}– {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['organisation-name'] %}
+        <form class="form" action="../go-to-summary" method="post" autocomplete="off">
+      {% else %} 
+        <form class="form" action="/spotlight-user-oct23/organisation-address" method="post" autocomplete="off">
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: question,
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: hint
+        },
+        id: "name",
+        name: "organisation-name",
+        value: data['organisation-name']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

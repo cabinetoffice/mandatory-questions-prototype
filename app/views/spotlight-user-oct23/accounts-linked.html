@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Accounts linked – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukPanel({
+        titleText: "Accounts linked",
+        html: "Your data has been transferred to your GOV.UK One Login"
+      }) }}
+
+      <p>
+        You can now access your Find a grant information when you sign in using your GOV.UK One Login account.
+      </p>
+
+      <p>
+        If your information doesn’t show up, get in contact with us at <a href='#'>findagrant@cabinetoffice.gov.uk</a>.
+      </p>
+
+
+      <form class="form" action="/spotlight-user-oct23/before-you-start" method="post">
+      {{ govukButton({
+        text: "Continue"
+      })}}
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

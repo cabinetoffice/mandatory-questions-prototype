@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Companies House number – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['organisation-ch-number'] %}
+        <form class="form" action="../go-to-summary" method="post" autocomplete="off">
+      {% else %} 
+        <form class="form" action="/spotlight-user-oct23/organisation-cc-number" method="post" autocomplete="off">
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: "Enter your Companies House number (if you have one) (optional)",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          text: "Funding organisation might use this to identify your organisation when you apply for a grant. It might also be used to check your organisation is legitimate."
+        },
+        id: "ch-number",
+        name: "organisation-ch-number",
+        value: data['organisation-ch-number']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

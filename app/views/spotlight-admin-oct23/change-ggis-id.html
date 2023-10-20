@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+      <form class="form" action="../change-id" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Enter your GGIS Scheme Reference Number",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            html: "<p>GGIS stands for the Government Grant Information System. It holds the official list of all grants available across government.<br/><br/>
+              <a class='govuk-link' href='#'>Where can I find my GGIS Scheme Reference Number?</a></p>"
+          },
+          id: "ggis-id",
+          name: "ggis-id"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+  </div>
+
+{% endblock %}

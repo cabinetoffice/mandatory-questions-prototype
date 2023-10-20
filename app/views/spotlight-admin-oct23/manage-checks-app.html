@@ -1,0 +1,72 @@
+{% extends "layouts/main.html" %}
+
+{% set refNumberHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    We couldn't send required checks to Spotlight
+  </h3>
+  <p class="govuk-body">Spotlight could not find the GGIS number for your grant. <a href="/spotlight-admin-oct23/change-ggis-id?back-to=manage-checks-app" class="govuk-link">Check that your grant reference number is correct. </a></p>
+{% endset %}
+
+{% set connectionFailedHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    We couldn't connect to Spotlight
+  </h3>
+  <p class="govuk-body">The Find a grant service failed to connect to Spotlight. Please contact our support team at <a href="">findagrant@cabinetoffice.gov.uk</a>. </p>
+{% endset %}
+
+{% block pageTitle %}
+  Manage required checks – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    {% if data['error']=="refnumber" %}
+      {{ govukNotificationBanner({
+        html: refNumberHtml
+      }) }}
+
+    {% elif data['error']=="connect" %}
+      {{ govukNotificationBanner({
+        html: connectionFailedHtml
+      }) }}
+
+    {% endif %}
+
+    <h1 class="govuk-heading-l">Manage due diligence checks</h1>
+
+    <p class="govuk-body">Your application form has been designed to capture all of the information you need to run due diligence checks in Spotlight, a government owned due diligence tool.</p>
+    <p>We automatically send the information to Spotlight. You need to log in to Spotlight to run your checks.</p>
+    <p>Spotlight does not run checks on individuals or local authorities.</p>
+
+    <div class="govuk-inset-text">
+      <p>You have <b>25 applications</b> in Spotlight.<br/>
+        Spotlight was last updated on <b>25 September 2023</b>.</p>
+    </div>
+
+    {{ govukButton({
+      text: "Log in to Spotlight",
+      href: "/spotlight-admin-oct23/spotlight"
+    }) }}
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <p class="govuk-body">If you do not use Spotlight, you can download all of the due diligence information to run checks in another service.</p>
+    <p><a href="">Download checks from applications</a> (ZIP, 7 MB)</p>
+
+    {{ govukButton({
+      text: "Back to grant summary",
+      href: "/spotlight-admin-oct23/grant-overview-app",
+      classes: "govuk-button--secondary"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -230,3 +230,81 @@ router.post('/rename-back', function(req,res){
             res.redirect('/editing-and-sharing-sep23/section-question');
     }
 })
+
+//Admin view of Spotlight (October 2023) routes
+router.post("/change-id", function(req,res) {
+    backTo = req.session.data['back-to']
+
+    if (backTo == "grant-ad") {
+        res.redirect("/spotlight-admin-oct23/grant-overview-advert")
+    } else if (backTo == "grant-app") {
+        res.redirect("/spotlight-admin-oct23/grant-overview-app")
+    } else if (backTo == "checks-ad") {
+        res.redirect("/spotlight-admin-oct23/manage-checks-advert?error=none")
+    } else {
+        res.redirect("/spotlight-admin-oct23/manage-checks-app?error=none")
+    }
+
+})
+
+//User view of Spotlight questions (October 2023) routes
+router.post('/sign-in-2', function(req, res){
+    var migrated = req.session.data['migrated-account']
+
+    if (migrated == "true") {
+        res.redirect("/spotlight-user-oct23/before-you-start")
+    } else {
+        res.redirect("/spotlight-user-oct23/matching-account")
+    }
+})
+
+router.post('/transfer-account-3', function(req,res){
+    var chooseToLink = req.session.data['transfer-account']
+
+    if (chooseToLink == "link-yes") {
+        res.redirect("/spotlight-user-oct23/accounts-linked")
+    } else {
+        res.redirect("/spotlight-user-oct23/before-you-start")
+    }
+})
+
+router.post('/start-questions-2', function(req,res){
+    var orgName = req.session.data['organisation-name']
+    var yourName = req.session.data['personal-name']
+
+    if (orgName || yourName) {
+        res.redirect("/spotlight-user-oct23/funding-amount")
+    } else {
+        res.redirect("/spotlight-user-oct23/organisation-type")
+    }
+})
+
+router.post('/ch-or-cc', function(req,res) {
+    var appType = req.session.data['organisation-type']
+
+    if (appType == "Individual" || appType == "Non-limited company") {
+        res.redirect("/spotlight-user-oct23/funding-amount")
+    } else {
+        res.redirect("/spotlight-user-oct23/organisation-ch-number")
+    }
+})
+
+router.post('/go-to-summary', function(req,res){
+    var appType = req.session.data['organisation-type']
+
+    if (appType == "Individual" || appType == "Non-limited company") {
+        res.redirect("/spotlight-user-oct23/org-details-short")
+    } else {
+        res.redirect("/spotlight-user-oct23/confirm-org-details")
+    }
+})
+
+router.post('/to-form', function(req,res){
+    var formType = req.session.data['form-type']
+
+    if (formType == "internal") {
+        res.redirect("/spotlight-user-oct23/application-form")
+    } else {
+        res.redirect("/spotlight-user-oct23/leaving-gov")
+    }
+})

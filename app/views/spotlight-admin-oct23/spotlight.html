@@ -1,0 +1,110 @@
+{% extends "layouts/main.html" %}
+
+{% set serviceName %}
+  Government Grants Management Function
+{% endset%}
+
+{% block pageTitle %}
+  Log in to Spotlight – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: serviceName,
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#",
+      text: "Get help with Spotlight"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block beforeContent %}
+
+{{ govukPhaseBanner({
+  tag: {
+    text: "Beta"
+  },
+  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+}) }}
+
+<br>
+
+<img src="public/images/Information_Icon.png" style="width:auto; height:20px; float:left; margin-right:10px;"><p class="govuk-body-s">The Cabinet Office Grant Management Function is not responsible for the accuracy of the information received from data sources</p>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <img src="/public/images/cabinetofficelogo.jpeg" style="width: 22%">
+    <img src="/public/images/spotlight_logo.avif" style="margin-left: 180px;margin-right: auto;width: 22%;">
+  </div>
+</div>
+
+<br>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Sign in to your account</h1>
+
+    <p>Before you can use this service, you need to <a href="#" class="govuk-link govuk-link--no-underline">request access</a>.</p>
+    <p>Your request will be considered by the due diligence coordinator in your department or arm's-length body.</p>
+    <p>Once access is granted, you'll receive your sign in details by email.</p>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="login-email" style="font-weight: bold;">
+        Username:
+      </label>
+      <div id="login-email-hint" class="govuk-hint">
+        Your username can be found in the “Welcome to Spotlight” original email that you received to create your password.
+      </div>
+      <input class="govuk-input" id="login-email" name="loginEmail" type="text">
+    </div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="login-pass" style="font-weight: bold;">
+        Password:
+      </label>
+      <input class="govuk-input" id="login-pass" name="loginPass" type="text">
+    </div>
+
+    {{ govukButton({
+      text: "Sign in",
+      href: "#",
+      isStartButton: true
+    }) }}
+
+    {{ govukDetails({
+      summaryText: "Forgotten your password?",
+      html: "<p>If you've forgotten your password, you can <a href='#' class='govuk-link govuk-link--no-underline'>request a password reset</a>.</p>"
+    }) }}
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">About Spotlight</h2>
+
+    <p>The Government Grants Management Function and Counter Fraud Team have developed Spotlight. This is a due diligence tool that can automate basic due diligence checks.
+    </p>
+
+    <p>Spotlight enables you to:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>conduct basic checks quicker</li>
+      <li>identify areas of potential risk in received applications</li>
+      <li>match large volumes of applicants against pre-defined risk indicators</li>
+    </ul>
+    
+    <p>
+      It can also conduct a Post Award Assurance check. <br/>
+      This confirms whether the recipient has hit a number of Key Risk Indicators (KRIs). These KRIs reflect the potential fraud risk of an organisation in relation to grant funding and should be used by the user to assess where further investigation and intervention may be required.
+    </p>
+  </div>
+</div>
+
+
+{% endblock %}

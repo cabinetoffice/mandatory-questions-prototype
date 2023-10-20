@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Funding amount – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['funding-amount'] %}
+        <form class="form" action="../go-to-summary" method="post" autocomplete="off">
+      {% else %} 
+        <form class="form" action="/spotlight-user-oct23/funding-location" method="post" autocomplete="off">
+      {% endif %}
+
+      {{ govukInput({
+        id: "funding-amount",
+        name: "funding-amount",
+        value: data["funding-amount"],
+        label: {
+          text: "How much funding are you applying for?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        hint: {
+          html: "
+          <p class='govuk-hint'>Please enter whole pounds only.</p>
+          "
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+      
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      {{ govukDetails({
+        summaryText: "Why do we need this information?",
+        text: "It helps us to understand demand for this grant. Also, we may use this information in future when running anti-fraud checks."
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
