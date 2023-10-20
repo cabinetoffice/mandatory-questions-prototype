@@ -29,56 +29,44 @@ Home - Apply for a Grant
       </li>
     </ul>
 
-    {{ govukSummaryList({
+    {{ govukTable({
       rows: [
-        {
-          key: {
+        [
+          {
             html: "<a href='#' class='govuk-link'>Eligibility</a>"
           },
-          actions: {
-            items: [
-              {
-                html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>"
-              }
-            ]
+          {
+            html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>",
+            format: "numeric"
           }
-        },
-        {
-          key: {
+        ],
+        [
+          {
             html: "<a href='#' class='govuk-link'>Your organisation</a>"
           },
-          actions: {
-            items: [
-              {
-                html: "<strong class='govuk-tag'>Completed</strong>"
-              }
-            ]
+          {
+            html: "<strong class='govuk-tag'>Completed</strong>",
+            format: "numeric"
           }
-        },
-        {
-          key: {
+        ],
+        [
+          {
             html: "<a href='#' class='govuk-link'>Funding</a>"
           },
-          actions: {
-            items: [
-              {
-                html: "<strong class='govuk-tag govuk-tag--blue'>In progress</strong>"
-              }
-            ]
+          {
+            html: "<strong class='govuk-tag govuk-tag--blue'>In progress</strong>",
+            format: "numeric"
           }
-        },
-        {
-          key: {
+        ],
+        [
+          {
             html: "<a href='#' class='govuk-link'>Custom section</a>"
           },
-          actions: {
-            items: [
-              {
-                html: "<strong class='govuk-tag'>Completed</strong>"
-              }
-            ]
+          {
+            html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>",
+            format: "numeric"
           }
-        }
+        ]
       ]
     }) }}
 
