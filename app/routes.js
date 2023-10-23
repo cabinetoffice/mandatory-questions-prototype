@@ -248,16 +248,6 @@ router.post("/change-id", function(req,res) {
 })
 
 //User view of Spotlight questions (October 2023) routes
-router.post('/sign-in-2', function(req, res){
-    var migrated = req.session.data['migrated-account']
-
-    if (migrated == "true") {
-        res.redirect("/spotlight-user-oct23/before-you-start")
-    } else {
-        res.redirect("/spotlight-user-oct23/matching-account")
-    }
-})
-
 router.post('/transfer-account-3', function(req,res){
     var chooseToLink = req.session.data['transfer-account']
 
