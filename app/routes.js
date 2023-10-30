@@ -298,3 +298,14 @@ router.post('/to-form', function(req,res){
         res.redirect("/spotlight-user-oct23/leaving-gov")
     }
 })
+
+//MVP version of user view of Spotlight (October 2023) routes
+router.post('/to-form-2', function(req,res) {
+    var goingTo = req.session.data['form-type']
+
+    if (goingTo == 'external') {
+        res.redirect('/spotlight-user2-oct23/leaving-gov')
+    } else {
+        res.redirect('/spotlight-user2-oct23/application-form')
+    }
+})

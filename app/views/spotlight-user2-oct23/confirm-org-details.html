@@ -152,15 +152,16 @@
         ]
       }) }}
 
-      <div class="govuk-button-group">
+      <form action="../to-form-2" method="post">
+        <div class="govuk-button-group">
 
-          {{ govukButton({
-            text: "Confirm and submit",
-            href: "../to-form-2"
-          }) }}
+            {{ govukButton({
+              text: "Confirm and submit"
+            }) }}
 
-        <a class="govuk-link" href="/spotlight-user2-oct23/grant-page">Cancel</a>
-      </div>
+          <a class="govuk-link" href="/spotlight-user2-oct23/grant-page">Cancel</a>
+        </div>
+      </form>
 
     </div>
   </div>
