@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  You are now leaving GOV.UK – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="https://defra.bravosolution.co.uk/web/login.html" method="post">
+
+        <h1 class="govuk-heading-xl">You are now leaving GOV.UK</h1>
+        <p class='govuk-body'>
+            Thank you for providing us with information on your grant application. We will use this information to help us understand the demand for this grant.
+        </p>
+        <p class="govuk-body">
+            The application form for this grant is not managed by GOV.UK. When you continue, you will be directed to another website. You may need to log in or sign up to this website to continue your application.
+        </p>
+
+         
+        {{ govukButton({
+          text: "Continue to application form"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Home - Apply for a Grant
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <span class="govuk-caption-l">Grant In Progress</span>
+    <h1 class="govuk-heading-l">
+      Your application
+    </h1>
+
+    <p class="govuk-body">How the application form works:
+    </p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li> you must complete each section of the application form
+      </li>
+      <li> once all sections are complete you can submit your application
+      </li>
+      <li> you can save your application and come back to it later
+      </li>
+    </ul>
+
+    {{ govukTable({
+      rows: [
+        [
+          {
+            html: "<a href='#' class='govuk-link'>Eligibility</a>"
+          },
+          {
+            html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>",
+            format: "numeric"
+          }
+        ],
+        [
+          {
+            html: "<a href='#' class='govuk-link'>Your organisation</a>"
+          },
+          {
+            html: "<strong class='govuk-tag'>Completed</strong>",
+            format: "numeric"
+          }
+        ],
+        [
+          {
+            html: "<a href='#' class='govuk-link'>Funding</a>"
+          },
+          {
+            html: "<strong class='govuk-tag govuk-tag--blue'>In progress</strong>",
+            format: "numeric"
+          }
+        ],
+        [
+          {
+            html: "<a href='#' class='govuk-link'>Custom section</a>"
+          },
+          {
+            html: "<strong class='govuk-tag govuk-tag--grey'>Not started</strong>",
+            format: "numeric"
+          }
+        ]
+      ]
+    }) }}
+
+
+    <div class="govuk-button-group">
+
+      <a href="#" role="button"
+        draggable="false" class="govuk-button" data-module="govuk-button">
+        Review and submit
+      </a>
+     
+      <p class="govuk-body"><a class="govuk-link" href="#">Save and come back later</a> </p>
+
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <div class="app-related-items">
+        <h2 class="govuk-heading-s">Help and support </h2>
+        <p class="govuk-body">If you have a question about this grant, contact:</p>
+            <p class="govuk-body"><a class="govuk-link" href="">abcd@answerquestions.gov.uk </a> </p>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

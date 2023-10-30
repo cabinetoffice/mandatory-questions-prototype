@@ -1,0 +1,167 @@
+{% extends "layouts/main.html" %}
+
+{% set addressList = [data['organisation-address']['line-1'], data['organisation-address']['line-2'], data['organisation-address']['town'], data['organisation-address']['county'], data['organisation-address']['postcode']] | select()%}
+{% set addressListBroken = addressList | join('<br>') | safe %}
+{% set locationsListBroken = data['funding-location'] | join('<br>') | safe %}
+{% set amountPounds = '£' + data['funding-amount'] %}
+
+
+{% block pageTitle %}
+  Confirm your organisation details – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your organisation details
+      </h1>
+
+      <p>Check that the following details about your organisation are accurate and up to date. Funding organisations will use these details to prevent fraud.</p>
+      <p> Your organisation's name, address, type, Companies House number, and Charity Commission number will be saved to your profile.</p>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value:{ 
+              text: data['organisation-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/organisation-name",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Address"
+            },
+            value:{
+              html: addressListBroken
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/organisation-address",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Type of organisation"
+            },
+            value:{ 
+              text: data['organisation-type']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/organisation-type",
+                  text: "Change",
+                  visuallyHiddenText: "type"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Companies House number"
+            },
+            value:{ 
+              text: data['organisation-ch-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/organisation-ch-number",
+                  text: "Change",
+                  visuallyHiddenText: "Companies House number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Charity Commission number"
+            },
+            value:{ 
+              text: data['organisation-cc-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/organisation-cc-number",
+                  text: "Change",
+                  visuallyHiddenText: "Charities Commission number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Amount of funding required"
+            },
+            value:{ 
+              text: amountPounds
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/funding-amount",
+                  text: "Change",
+                  visuallyHiddenText: "amount of funding"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Locations where funding will be used"
+            },
+            value:{ 
+              text: locationsListBroken
+            },
+            actions: {
+              items: [
+                {
+                  href: "/spotlight-user2-oct23/funding-location",
+                  text: "Change",
+                  visuallyHiddenText: "locations where funding will be used"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="govuk-button-group">
+
+          {{ govukButton({
+            text: "Confirm and submit",
+            href: "../to-form-2"
+          }) }}
+
+        <a class="govuk-link" href="/spotlight-user2-oct23/grant-page">Cancel</a>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Before you start – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/spotlight-user2-oct23/organisation-name" method="post">
+
+        <h1 class="govuk-heading-xl">Before you start</h1>
+        <p class='govuk-body'>
+            Before you start, we’d like to ask you a few questions.
+        </p>
+        <p class="govuk-body">
+            These questions will be used by the grant’s administrators to prevent fraud and help Find a grant understand the demand for this grant.
+        </p>
+        <p class="govuk-body">
+            You will need:
+        </p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>your organisation's address</li>
+            <li>your organisation's Companies House number (if you have one)</li>
+            <li>your organisation's Charity Commission number (if you have one)</li>
+          </ul>
+
+         
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
